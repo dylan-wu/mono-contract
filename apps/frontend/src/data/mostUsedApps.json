@@ -1,0 +1,52 @@
+[
+  {
+    "logo": "/logos/sheets.png",
+    "value": "74,000 users",
+    "width": "80%"
+  },
+  {
+    "logo": "/logos/discord.png",
+    "value": "60,382 users",
+    "width": "62%"
+  },
+  {
+    "logo": "/logos/drive.png",
+    "value": "57,323 users",
+    "width": "57%"
+  },
+  {
+    "logo": "/logos/slack.png",
+    "value": "56,197 users",
+    "width": "55%"
+  },
+  {
+    "logo": "/logos/gmail.png",
+    "value": "56,154 users",
+    "width": "55%"
+  },
+  {
+    "logo": "/logos/mailchimp.png",
+    "value": "42,785 users",
+    "width": "37%"
+  },
+  {
+    "logo": "/logos/microsoftoffice.png",
+    "value": "39,201 users",
+    "width": "33%"
+  },
+  {
+    "logo": "/logos/zoom.png",
+    "value": "38,747 users",
+    "width": "31%"
+  },
+  {
+    "logo": "/logos/atlassian.png",
+    "value": "34,596 users",
+    "width": "26%"
+  },
+  {
+    "logo": "/logos/intercom.png",
+    "value": "32,009 users",
+    "width": "23%"
+  }
+]

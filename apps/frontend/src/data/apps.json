@@ -1,0 +1,142 @@
+[
+    {
+        "name": "Atlassian",
+        "logo": "/logos/atlassian.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Gsuite",
+        "logo": "/logos/gsuite.jpg",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Google Sheets",
+        "logo": "/logos/googlesheets.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Gmail",
+        "logo": "/logos/gmail.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Mailchimp",
+        "logo": "/logos/mailchimp.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Slack",
+        "logo": "/logos/slack.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Discord",
+        "logo": "/logos/discord.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Drive",
+        "logo": "/logos/drive.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Microsoft Office",
+        "logo": "/logos/microsoftoffice.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Stripe",
+        "logo": "/logos/stripe.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Salesforce",
+        "logo": "/logos/salesforce.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Zoom",
+        "logo": "/logos/zoom.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Adobe Cloud",
+        "logo": "/logos/adobecloud.svg",
+        "link": "/salesforce"
+    },
+    {
+        "name": "People Soft",
+        "logo": "/logos/peoplesoft.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Sap",
+        "logo": "/logos/sap.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Docusign",
+        "logo": "/logos/docusign.svg",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Intercom",
+        "logo": "/logos/intercom.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Hubspot",
+        "logo": "/logos/hubspot.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Klaviyo",
+        "logo": "/logos/klaviyo.svg",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Miro",
+        "logo": "/logos/miro.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Lucidcharts",
+        "logo": "/logos/lucidcharts.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Tableau",
+        "logo": "/logos/tableau.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Figma",
+        "logo": "/logos/figma.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Adobe",
+        "logo": "/logos/adobe.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Epic",
+        "logo": "/logos/epic.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Adobe Acrobat",
+        "logo": "/logos/adobeacrobat.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Tableau",
+        "logo": "/logos/tableau.png",
+        "link": "/salesforce"
+    },
+    {
+        "name": "Autodesk",
+        "logo": "/logos/autodesk.png",
+        "link": "/salesforce"
+    }
+]

@@ -1,0 +1,186 @@
+[
+    {
+        "month": "January",
+        "numApps": 3,
+        "apps": [
+            {
+                "name": "Atlassian",
+                "logo": "/logos/atlassian.png"
+            },
+            {
+                "name": "Slack",
+                "logo": "/logos/slack.png"
+            },
+            {
+                "name": "Gsuite",
+                "logo": "/logos/gsuite.jpg"
+            }
+        ]
+    },
+    {
+        "month": "February",
+        "numApps": 2,
+        "apps": [
+            {
+                "name": "Zoom",
+                "logo": "/logos/zoom.png"
+            },
+            {
+                "name": "Salesforce",
+                "logo": "/logos/salesforce.png"
+            }
+        ]
+    },
+    {
+        "month": "March",
+        "numApps": 1,
+        "apps": [
+            {
+                "name": "Docusign",
+                "logo": "/logos/docusign.svg"
+            }
+        ]
+    },
+    {
+        "month": "April",
+        "numApps": 1,
+        "apps": [
+            {
+                "name": "Intercom",
+                "logo": "/logos/intercom.png"
+            }
+        ]
+    },
+    {
+        "month": "May",
+        "numApps": 4,
+        "apps": [
+            {
+                "name": "Hubspot",
+                "logo": "/logos/hubspot.png"
+            },
+            {
+                "name": "Klaviyo",
+                "logo": "/logos/klaviyo.svg"
+            },
+            {
+                "name": "Miro",
+                "logo": "/logos/miro.png"
+            },
+            {
+                "name": "Lucidcharts",
+                "logo": "/logos/lucidcharts.png"
+            }
+        ]
+    },
+    {
+        "month": "June",
+        "numApps": 3,
+        "apps": [
+            {
+                "name": "Tableau",
+                "logo": "/logos/tableau.png"
+            },
+            {
+                "name": "Figma",
+                "logo": "/logos/figma.png"
+            },
+            {
+                "name": "Adobe",
+                "logo": "/logos/adobe.png"
+            }
+        ]
+    },
+    {
+        "month": "July",
+        "numApps": 3,
+        "apps": [
+            {
+                "name": "Atlassian",
+                "logo": "/logos/atlassian.png"
+            },
+            {
+                "name": "Slack",
+                "logo": "/logos/slack.png"
+            },
+            {
+                "name": "Gsuite",
+                "logo": "/logos/gsuite.jpg"
+            }
+        ]
+    },
+    {
+        "month": "August",
+        "numApps": 2,
+        "apps": [
+            {
+                "name": "Zoom",
+                "logo": "/logos/zoom.png"
+            },
+            {
+                "name": "Salesforce",
+                "logo": "/logos/salesforce.png"
+            }
+        ]
+    },
+    {
+        "month": "September",
+        "numApps": 1,
+        "apps": [
+            {
+                "name": "Docusign",
+                "logo": "/logos/docusign.svg"
+            }
+        ]
+    },
+    {
+        "month": "October",
+        "numApps": 1,
+        "apps": [
+            {
+                "name": "Intercom",
+                "logo": "/logos/intercom.png"
+            }
+        ]
+    },
+    {
+        "month": "November",
+        "numApps": 4,
+        "apps": [
+            {
+                "name": "Hubspot",
+                "logo": "/logos/hubspot.png"
+            },
+            {
+                "name": "Klaviyo",
+                "logo": "/logos/klaviyo.svg"
+            },
+            {
+                "name": "Miro",
+                "logo": "/logos/miro.png"
+            },
+            {
+                "name": "Lucidcharts",
+                "logo": "/logos/lucidcharts.png"
+            }
+        ]
+    },
+    {
+        "month": "December",
+        "numApps": 3,
+        "apps": [
+            {
+                "name": "Tableau",
+                "logo": "/logos/tableau.png"
+            },
+            {
+                "name": "Figma",
+                "logo": "/logos/figma.png"
+            },
+            {
+                "name": "Adobe",
+                "logo": "/logos/adobe.png"
+            }
+        ]
+    }
+]

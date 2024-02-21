@@ -1,0 +1,69 @@
+{
+  "cards": [
+    {
+      "name": "Total Software Costs",
+      "data": "$196,000",
+      "chart": "70%",
+      "change": "+15%"
+    },
+    {
+      "name": "Total Savings Opportunity",
+      "data": "$36,000",
+      "chart": "77%",
+      "change": "+15%"
+    },
+    {
+      "name": "Total Users",
+      "data": "2,500",
+      "chart": "52%",
+      "change": "+15%"
+    }
+  ],
+  "utilization": {
+    "Operation": "7%",
+    "Design": "20%",
+    "humanResource": "15%",
+    "developerTools": "12%",
+    "itSecurity": "5%",
+    "Analytics & BI": "8%",
+    "Sales & Marketing": "33%"
+  },
+  "breakdown": [
+    {
+      "name": "Sales Cloud",
+      "cost": "$25,000",
+      "users": "125",
+      "utilization": "12%"
+    },
+    {
+      "name": "Commerce Cloud",
+      "cost": "$75,000",
+      "users": "125",
+      "utilization": "52%"
+    },
+    {
+      "name": "Revenue Cloud",
+      "cost": "$20,000",
+      "users": "125",
+      "utilization": "22%"
+    },
+    {
+      "name": "Marketing Cloud",
+      "cost": "$20,000",
+      "users": "125",
+      "utilization": "42%"
+    },
+    {
+      "name": "Experience Cloud",
+      "cost": "$15,000",
+      "users": "125",
+      "utilization": "63%"
+    },
+    {
+      "name": "Analytics Cloud",
+      "cost": "$31,000",
+      "users": "125",
+      "utilization": "20%"
+    }
+  ]
+}

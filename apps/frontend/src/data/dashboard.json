@@ -1,0 +1,23 @@
+[
+  {
+    "name": "Total Apps",
+    "data": "350",
+    "change": "+15%",
+    "color": "green",
+    "image": "dashboard/apps.png"
+  },
+  {
+    "name": "Total Cost",
+    "data": "$2,500,000",
+    "change": "-15%",
+    "color": "green",
+    "image": "dashboard/cost.png"
+  },
+  {
+    "name": "Total Users",
+    "data": "3,500",
+    "change": "-15%",
+    "color": "red",
+    "image": "dashboard/users.png"
+  }
+]

@@ -1,0 +1,47 @@
+[
+  {
+    "department": "Finance",
+    "users": "2,000",
+    "usersColor": "orange",
+    "cost": "$10,000",
+    "costsColor": "green",
+    "totalApps": "157",
+    "totalContracts": "5"
+  },
+  {
+    "department": "HR",
+    "users": "3,500",
+    "usersColor": "green",
+    "cost": "$17,500",
+    "costsColor": "yellow",
+    "totalApps": "117",
+    "totalContracts": "24"
+  },
+  {
+    "department": "IT",
+    "users": "3,500",
+    "usersColor": "green",
+    "cost": "$17,500",
+    "costsColor": "yellow",
+    "totalApps": "157",
+    "totalContracts": "6"
+  },
+  {
+    "department": "Sales",
+    "users": "60",
+    "usersColor": "green",
+    "cost": "$300",
+    "costsColor": "green",
+    "totalApps": "157",
+    "totalContracts": "5"
+  },
+  {
+    "department": "Marketing",
+    "users": "2,000",
+    "usersColor": "yellow",
+    "cost": "$10,000",
+    "costsColor": "yellow",
+    "totalApps": "66",
+    "totalContracts": "9"
+  }
+]
