@@ -134,24 +134,7 @@ export default function Home() {
         ))}
       </Group>
       <Grid mt="md">
-        <Grid.Col span={4}>
-          <Card
-            withBorder
-            radius="xl"
-            padding="xl"
-            sx={(theme) => ({
-              backgroundColor:
-                theme.colorScheme === "dark"
-                  ? theme.colors.dark[7]
-                  : theme.white,
-            })}
-          >
-            <Group grow>
-              <DepartmentUtilization />
-            </Group>
-          </Card>
-        </Grid.Col>
-        <Grid.Col span={8}>
+        <Grid.Col span={12}>
           <Card
             withBorder
             radius="xl"
@@ -169,7 +152,6 @@ export default function Home() {
                   <th style={{ fontWeight: "400" }}>VENDOR BREAKDOWN</th>
                   <th style={{ fontWeight: "400" }}>LICENSE COST</th>
                   <th style={{ fontWeight: "400" }}>TOTAL USERS</th>
-                  <th style={{ fontWeight: "400" }}>UTILIZATION RATE</th>
                 </tr>
               </thead>
               <tbody>{rows}</tbody>
