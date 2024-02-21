@@ -47,11 +47,6 @@ export default function Home() {
           {element.users}
         </Text>
       </td>
-      <td>
-        <Text fz="1.25rem" fw={400} c="#0B3D91">
-          {element.utilization}
-        </Text>
-      </td>
     </tr>
   ));
 
