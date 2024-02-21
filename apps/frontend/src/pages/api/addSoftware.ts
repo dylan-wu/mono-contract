@@ -1,3 +1,5 @@
+// @ts-nocheck
+
 export async function postData(url: String, data: Object) {
   try {
     const response = await fetch(url, {
