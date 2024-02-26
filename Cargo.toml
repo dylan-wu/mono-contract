@@ -1,0 +1,6 @@
+[workspace]
+members = [
+    "apps/job-updater",
+    "packages/db-schema"
+]
+edition = "2021"
