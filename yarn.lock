@@ -329,20 +329,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"@mantine/carousel@npm:^6.0.19":
-  version: 6.0.20
-  resolution: "@mantine/carousel@npm:6.0.20"
-  dependencies:
-    "@mantine/utils": 6.0.20
-  peerDependencies:
-    "@mantine/core": 6.0.20
-    "@mantine/hooks": 6.0.20
-    embla-carousel-react: ^7.0.0
-    react: ">=16.8.0"
-  checksum: 24281ea79a59a2abb102233a00f0aa8fad576c35025cd2e7a5a7c7f9c4ff13f8daf3a4681528ae6eda372c956cb42e6b5e052e4451763c224f91e6a65ac81d2a
-  languageName: node
-  linkType: hard
-
 "@mantine/core@npm:^6.0.19":
   version: 6.0.20
   resolution: "@mantine/core@npm:6.0.20"
@@ -1768,34 +1754,6 @@ __metadata:
   languageName: node
   linkType: hard
 
-"embla-carousel-react@npm:^8.0.0-rc11":
-  version: 8.0.0-rc11
-  resolution: "embla-carousel-react@npm:8.0.0-rc11"
-  dependencies:
-    embla-carousel: 8.0.0-rc11
-    embla-carousel-reactive-utils: 8.0.0-rc11
-  peerDependencies:
-    react: ^16.8.0 || ^17.0.1 || ^18.0.0
-  checksum: 10399bf17735ef98d8e3eb289ef0e80a6d6c15b2e0800223c6047681e1563f4955ea299ce51c3b02c052bebc4d0b50294e31f32e6459a97ed9dd5eb5f4283dee
-  languageName: node
-  linkType: hard
-
-"embla-carousel-reactive-utils@npm:8.0.0-rc11":
-  version: 8.0.0-rc11
-  resolution: "embla-carousel-reactive-utils@npm:8.0.0-rc11"
-  peerDependencies:
-    embla-carousel: 8.0.0-rc11
-  checksum: fcbe1922a702d3ada809e0b1637181fe90c7914aab5b099db027cc7b84fa666be8325db4cf77f9d9a348838176f4652a1d9ee94484151ba8a9072ba961e13c11
-  languageName: node
-  linkType: hard
-
-"embla-carousel@npm:8.0.0-rc11":
-  version: 8.0.0-rc11
-  resolution: "embla-carousel@npm:8.0.0-rc11"
-  checksum: 8b09e2ec09b4510157f1cdfeb471427f07deb4f9eb6c1d1f953264bc93cfda6bfe166710e3016e3b19a774044472d177a23edc803fe694641d3184a19be7f63f
-  languageName: node
-  linkType: hard
-
 "error-ex@npm:^1.3.1":
   version: 1.3.2
   resolution: "error-ex@npm:1.3.2"
@@ -1866,7 +1824,6 @@ __metadata:
   dependencies:
     "@clerk/nextjs": ^4.21.10
     "@emotion/react": ^11.11.1
-    "@mantine/carousel": ^6.0.19
     "@mantine/core": ^6.0.19
     "@mantine/dropzone": ^6.0.19
     "@mantine/hooks": ^6.0.19
@@ -1885,7 +1842,6 @@ __metadata:
     autoprefixer: ^10.4.14
     chart.js: ^4.3.3
     d3: ^7.8.5
-    embla-carousel-react: ^8.0.0-rc11
     next: 13.4.4
     prisma: ^4.15.0
     react: 18.2.0
