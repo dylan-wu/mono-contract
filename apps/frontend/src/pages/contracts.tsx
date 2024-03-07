@@ -170,13 +170,7 @@ export default function Home(props: Partial<DropzoneProps>) {
     .split("@")[1]
     .split(".")[0];
 
-  const links = mockdata.map((item) =>
-    item.links ? (
-      <LinksGroup {...item} key={item.label} />
-    ) : (
-      <Link key={item.label} {...item} />
-    )
-  );
+  const links = mockdata.map((item) => <Link key={item.label} {...item} />);
   return (
     <AppShell style={{ backgroundColor: "#F9FAFB" }}>
       <Navbar width={{ sm: 300 }} p="md">
