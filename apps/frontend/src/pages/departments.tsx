@@ -1,5 +1,5 @@
 import NavbarNested from "@/components/layouts/Dashboard";
-import { Group, Text, Card, Badge, Table, Flex } from "@mantine/core";
+import { Text, Card, Badge, Table, Flex } from "@mantine/core";
 import DepartmentData from "../data/department.json";
 
 export default function Home() {

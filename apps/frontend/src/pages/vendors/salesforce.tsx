@@ -19,7 +19,6 @@ import {
   IconDotsVertical,
 } from "@tabler/icons-react";
 import SalesforceData from "../../data/vendors/salesforce.json";
-import DepartmentUtilization from "@/components/DepartmentUtilization";
 
 export default function Home() {
   const rows = SalesforceData.breakdown.map((element) => (
@@ -62,41 +61,6 @@ export default function Home() {
           </Card>
           <Title size="h2">Salesforce</Title>
         </Group>
-        <Flex justify="flex-end" gap="md">
-          <Button
-            color="gray"
-            rightIcon={<IconChevronRight />}
-            variant="outline"
-            size="lg"
-          >
-            Department
-          </Button>
-          <Button
-            color="gray"
-            rightIcon={<IconChevronRight />}
-            variant="outline"
-            size="lg"
-          >
-            Vendor Name
-          </Button>
-          <Button
-            color="gray"
-            leftIcon={<IconCalendarEvent />}
-            rightIcon={<IconChevronRight />}
-            variant="outline"
-            size="lg"
-          >
-            01 to 31 Aug
-          </Button>
-          <Button
-            color="gray"
-            rightIcon={<IconDotsVertical />}
-            variant="outline"
-            size="lg"
-          >
-            More Options
-          </Button>
-        </Flex>
       </Group>
 
       <Group grow>

@@ -1,13 +1,10 @@
-import NavbarNested from "@/components/layouts/Dashboard";
 import {
   Group,
   Text,
-  Card,
   Badge,
   Table,
   Flex,
   Image,
-  SimpleGrid,
   Title,
   Stack,
   Tabs,
@@ -18,6 +15,7 @@ import {
   ScrollArea,
   ActionIcon,
   Textarea,
+  Select,
 } from "@mantine/core";
 import ContractData from "../data/contracts.json";
 import PendingData from "../data/pending.json";
@@ -25,15 +23,13 @@ import {
   Dropzone,
   DropzoneProps,
   FileWithPath,
-  IMAGE_MIME_TYPE,
   PDF_MIME_TYPE,
 } from "@mantine/dropzone";
-import { useRef, useState } from "react";
+import { useRef } from "react";
 import {
   IconArrowsSort,
   IconBell,
   IconCloudUpload,
-  IconDatabasePlus,
   IconFileAnalytics,
   IconFilter,
   IconLayoutDashboard,
@@ -46,22 +42,31 @@ import {
 import { useDisclosure } from "@mantine/hooks";
 import { LinksGroup } from "../components/NavbarLinksGroup";
 import { Link } from "../components/NavbarLink";
-import { UserButton } from "@clerk/nextjs";
+import { UserButton, useUser } from "@clerk/nextjs";
+// import uploadFile from "./api/UploadFile";
+
+import uploadFileDetails from "./api/UploadFileDetails";
+import uploadFileToS3 from "./api/UploadFileToS3";
+
+async function handleFileUpload(file: FileWithPath, companyName: String) {
+  try {
+    // First, get the pre-signed URL
+    const url = await uploadFileDetails(file, companyName);
+    console.log(url);
+    console.log(file);
+    // Next, use the URL to upload the file
+    await uploadFileToS3(url, file);
+    console.log("File upload process completed successfully.");
+  } catch (error) {
+    console.error("An error occurred during the file upload process:", error);
+  }
+}
 
 export default function Home(props: Partial<DropzoneProps>) {
   const [opened, { open, close }] = useDisclosure(false);
-  const [files, setFiles] = useState<FileWithPath[]>([]);
   const openRef = useRef<() => void>(null);
-  const previews = files.map((file, index) => {
-    const imageUrl = URL.createObjectURL(file);
-    return (
-      <Image
-        key={index}
-        src={imageUrl}
-        onLoad={() => URL.revokeObjectURL(imageUrl)}
-      />
-    );
-  });
+  const { user } = useUser();
+
   const contractRows = ContractData.map((element) => (
     <tr key={element.department}>
       <td>
@@ -76,11 +81,16 @@ export default function Home(props: Partial<DropzoneProps>) {
           {element.name}
         </Text>
       </td>
+      <td>PLACEHOLDER</td>
       <td>
-        <Badge fw={400}>{element.start}</Badge>
+        <Badge size="lg" fw={600} color="green">
+          {element.start}
+        </Badge>
       </td>
       <td>
-        <Badge fw={400}>{element.end}</Badge>
+        <Badge size="lg" fw={600} color="red">
+          {element.end}
+        </Badge>
       </td>
       <td>
         <Text fw={400} fz="1.25rem" c="#0B3D91">
@@ -150,20 +160,15 @@ export default function Home(props: Partial<DropzoneProps>) {
     </tr>
   ));
   const mockdata = [
-    { label: "Dashboard", icon: IconLayoutDashboard, link: "/" },
-    {
-      label: "Active Spend",
-      icon: IconWallet,
-      links: [
-        { label: "Spend by Vendor", link: "/vendors" },
-        { label: "Spend by Department", link: "/departments" },
-        { label: "Customize", link: "#" },
-      ],
-    },
     { label: "Send Report", icon: IconFileAnalytics, link: "#" },
     { label: "Renewals", icon: IconRefresh, link: "/renewals" },
     { label: "Contracts", icon: IconCloudUpload, link: "/contracts" },
   ];
+
+  const company = user?.emailAddresses[0]
+    .toString()
+    .split("@")[1]
+    .split(".")[0];
 
   const links = mockdata.map((item) =>
     item.links ? (
@@ -214,39 +219,21 @@ export default function Home(props: Partial<DropzoneProps>) {
         </Navbar.Section>
       </Navbar>
       <Flex direction="column" h="100%">
-        <div
-          style={{
-            position: "absolute",
-            right: 0,
-            bottom: 0,
-            padding: "30px",
-          }}
-        >
-          <Button
-            onClick={open}
-            leftIcon={<IconUpload />}
-            sx={(theme) => ({
-              backgroundColor: "#0B3D91",
-            })}
-          >
-            Upload Documents
-          </Button>
-        </div>
         <Modal opened={opened} onClose={close} withCloseButton={false} centered>
           <Stack mb="xl">
             <Title order={3} ta="center">
               Tell us how to process your file:
             </Title>
-            <Textarea
-              label="Your Instructions"
-              placeholder="Extract the contract start date..."
+            <Select
+              label="Data Template"
+              placeholder="Default"
+              data={["Default", "Salesforce", "Microsoft 365"]}
             />
           </Stack>
           <Dropzone
-            onDrop={(files) => console.log("accepted files", files)}
+            onDrop={(files) => handleFileUpload(files[0], "")}
             onReject={(files) => console.log("rejected files", files)}
-            maxSize={3 * 1024 ** 2}
-            accept={IMAGE_MIME_TYPE}
+            accept={PDF_MIME_TYPE}
             {...props}
           >
             <Group position="center" spacing="xl">
@@ -298,6 +285,7 @@ export default function Home(props: Partial<DropzoneProps>) {
                 <thead>
                   <tr>
                     <th style={{ fontWeight: "400" }}>VENDOR NAME</th>
+                    <th style={{ fontWeight: "400" }}>CLIENT NAME</th>
                     <th style={{ fontWeight: "400" }}>START DATE</th>
                     <th style={{ fontWeight: "400" }}>END DATE</th>
                     <th style={{ fontWeight: "400" }}>COST</th>

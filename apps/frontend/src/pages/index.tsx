@@ -7,19 +7,14 @@ import {
   Card,
   Badge,
   Container,
-  Button,
   Image,
   Center,
 } from "@mantine/core";
-import { IconChevronRight } from "@tabler/icons-react";
 import DashboardData from "../data/dashboard.json";
 //import MostUsedAppsUpdate from "@/components/MostUsedAppsUpdate";
 import MostUsedAppsData from "../data/mostUsedApps.json";
 
 export default function Home() {
-  // @ts-ignore
-  // @ts-ignore
-  // @ts-ignore
   // @ts-ignore
   return (
     <NavbarNested>
