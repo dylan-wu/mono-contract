@@ -11,7 +11,6 @@ import {
   Center,
 } from "@mantine/core";
 import DashboardData from "../data/dashboard.json";
-//import MostUsedAppsUpdate from "@/components/MostUsedAppsUpdate";
 import MostUsedAppsData from "../data/mostUsedApps.json";
 
 export default function Home() {

@@ -2,11 +2,10 @@ import { FileWithPath } from "@mantine/dropzone";
 
 export default async function uploadFileDetails(
   fileName: FileWithPath,
-  companyName: String
+  companyName: String | undefined
 ) {
   const url =
     "https://pnvc9fhceb.execute-api.us-east-1.amazonaws.com/dev/upload";
-  const data = { fileName, companyName };
 
   try {
     const response = await fetch(url, {
@@ -14,7 +13,10 @@ export default async function uploadFileDetails(
       headers: {
         "Content-Type": "application/json",
       },
-      body: JSON.stringify(data),
+      body: JSON.stringify({
+        companyName: companyName,
+        fileName: fileName.name,
+      }),
     });
 
     if (!response.ok) throw new Error("Network response was not ok.");

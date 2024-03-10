@@ -22,7 +22,7 @@ import {
 } from "@tabler/icons-react";
 import { Dropzone } from "@mantine/dropzone";
 import { useState } from "react";
-import { postData } from "../api/addSoftware";
+import { postData } from "../api/AddSoftware";
 
 export default function Salesforce() {
   const [submitted, setSubmitted] = useState(false);
