@@ -12,6 +12,7 @@ import {
   Stack,
   Select,
   Text,
+  TextInput,
 } from "@mantine/core";
 import {
   IconFileAnalytics,
@@ -30,7 +31,7 @@ import uploadFileToS3 from "../../pages/api/UploadFileToS3";
 import { UserButton, useUser } from "@clerk/nextjs";
 import { Link } from "../NavbarLink";
 import { useDisclosure } from "@mantine/hooks";
-import { useRef } from "react";
+import { useRef, useState } from "react";
 import {
   Dropzone,
   DropzoneProps,
@@ -53,7 +54,7 @@ async function handleFileUpload(
     // First, get the pre-signed URL
     const url = await uploadFileDetails(file, companyName);
     // Next, use the URL to upload the file
-    await uploadFileToS3(url, file);
+    await uploadFileToS3(url, file, "application/pdf");
     console.log("File upload process completed successfully.");
   } catch (error) {
     console.error("An error occurred during the file upload process:", error);
@@ -67,6 +68,8 @@ export default function Dashboard(
   const { user } = useUser();
   const [opened, { open, close }] = useDisclosure(false);
   const openRef = useRef<() => void>(null);
+
+  const [acceptedFiles, setFiles] = useState<FileWithPath[]>([]);
 
   const links = navData.map((item) => <Link key={item.label} {...item} />);
 
@@ -119,17 +122,22 @@ export default function Dashboard(
       <Flex direction="column" h="100%">
         <Modal opened={opened} onClose={close} withCloseButton={false} centered>
           <Stack mb="xl">
-            <Title order={3} ta="center">
-              Tell us how to process your file:
+            <Title order={3} c="#232859">
+              Upload Contract
             </Title>
+            <TextInput
+              label="CONTRACT NAME"
+              placeholder="Enter contract name"
+            />
+            <TextInput label="COMPANY NAME" placeholder="Enter company name" />
             <Select
               label="Data Template"
-              placeholder="Default"
+              placeholder="Select template"
               data={["Default", "Salesforce", "Microsoft 365"]}
             />
           </Stack>
           <Dropzone
-            onDrop={(files) => handleFileUpload(files[0], company)}
+            onDrop={(files) => setFiles(files)}
             onReject={(files) => console.log("rejected files", files)}
             accept={PDF_MIME_TYPE}
             {...props}
@@ -156,6 +164,14 @@ export default function Dashboard(
               </div>
             </Group>
           </Dropzone>
+          <Group position="right">
+            <Button
+              mt="xl"
+              onClick={() => handleFileUpload(acceptedFiles[0], company)}
+            >
+              Submit Files
+            </Button>
+          </Group>
         </Modal>
         {children}
       </Flex>
