@@ -46,7 +46,7 @@ export default function IndividualEmployee(/**props: any*/) {
     return (
         <NavbarNested>
             <Group>
-                <ActionIcon color="dark">
+                <ActionIcon color="dark" component="a" href="/employees">
                     <IconChevronLeft />
                 </ActionIcon>
                 <div>
