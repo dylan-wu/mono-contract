@@ -1,16 +1,19 @@
-import { Group, Title, Table, Text } from "@mantine/core";
+import { Group, Title, Table, Text, ActionIcon } from "@mantine/core";
 import NavbarNested from "../components/layouts/Dashboard";
-import EmployeeData from "../data/employees.json"
+import EmployeeData from "../data/employees.json" 
 
-export default function Home() {
-    const employeeRows = EmployeeData[0].contracts.map((element) => ( // change 0 to dynamic input from props
+import {
+    IconChevronLeft
+} from "@tabler/icons-react";
+
+export default function IndividualEmployee(/**props: any*/) { 
+
+    const employeeRows = EmployeeData.find((elem) => elem.name === "Athena"/**props.name*/)?.contracts.map((element) => ( 
         <tr key={element.contractID}>
             <td>
                 <Text
                     component="a"
                     href="/vendors/salesforce" // make this dynamic to specific vendor
-                    fz="1.5rem"
-                    fw={600}
                     c="#0B3D91"
                     tt="capitalize"
                 >
@@ -18,17 +21,23 @@ export default function Home() {
                 </Text>
             </td>
             <td>
-                <Text>
+                <Text
+                    c="dimmed"
+                >
                     {element.contractID}
                 </Text>
             </td>
             <td>
-                <Text>
+                <Text
+                    c="dimmed"
+                >
                     {element.licenses}
                 </Text>
             </td>
             <td>
-                <Text>
+                <Text
+                    c="dimmed"
+                >
                     {element.amountCost}
                 </Text>
             </td>
@@ -37,9 +46,14 @@ export default function Home() {
     return (
         <NavbarNested>
             <Group>
-                <Title size="h2">Welcome back, {EmployeeData[0].name}</Title>
+                <ActionIcon color="dark">
+                    <IconChevronLeft />
+                </ActionIcon>
+                <div>
+                    <Title size="h2">Welcome back, {EmployeeData[0].name}</Title>
+                    <Text>{EmployeeData[0].email}</Text> 
+                </div>
             </Group>
-            <Text>{EmployeeData[0].email}</Text> 
             <Table>
                 <thead>
                     <tr>

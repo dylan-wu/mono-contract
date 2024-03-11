@@ -17,6 +17,7 @@ import {
   IconChevronUp,
   IconSearch,
 } from "@tabler/icons-react";
+import { useRouter } from "next/router";
 
 const useStyles = createStyles((theme) => ({
   th: {
@@ -134,7 +135,16 @@ export function TableSort({ data }: TableSortProps) {
 
   const rows = sortedData.map((row) => (
     <tr key={row.name}>
-      <td>{row.name}</td>
+      <td>
+        <Text
+          component="a"
+          c="#0B3D91"
+          href="/individual-employee"
+          tt="capitalize"
+        >
+          {row.name}
+        </Text>
+      </td>
       <td>{row.email}</td>
       <td>{row.company}</td>
     </tr>
