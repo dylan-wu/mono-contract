@@ -43,6 +43,7 @@ const navData = [
   { label: "Employees", icon: IconUsers, link: "/employees" },
   { label: "Renewals", icon: IconRefresh, link: "/renewals" },
   { label: "Contracts", icon: IconCloudUpload, link: "/contracts" },
+  { label: "Test", icon: IconBell, link: "/individual-employee" },
 ];
 
 async function handleFileUpload(

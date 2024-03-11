@@ -1,8 +1,38 @@
 [
     {
-        "companyName": "Atlassian",
-        "contractID": 346346,
-        "licenses": 4,
-        "amountCost": 500
+        "name": "John",
+        "email": "john.doe@talentgroups.com",
+        "contracts": [
+            {
+                "companyName": "Atlassian",
+                "contractID": 346346,
+                "licenses": 4,
+                "amountCost": "$500.00"
+            },
+            {
+                "companyName": "Confluence",
+                "contractID": 354633,
+                "licenses": 1,
+                "amountCost": "$200.00"
+            },
+            {
+                "companyName": "Indeed",
+                "contractID": 235123,
+                "licenses": 5,
+                "amountCost": "$300.00"
+            },
+            {
+                "companyName": "Fountain Job Board",
+                "contractID": 437894,
+                "licenses": 1,
+                "amountCost": "$75.00"
+            },
+            {
+                "companyName": "Slack",
+                "contractID": 343932,
+                "licenses": 1,
+                "amountCost": "$125.00"
+            }
+        ]
     }
 ]

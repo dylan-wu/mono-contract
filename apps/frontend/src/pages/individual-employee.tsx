@@ -3,7 +3,7 @@ import NavbarNested from "../components/layouts/Dashboard";
 import EmployeeData from "../data/employees.json"
 
 export default function Home() {
-    const employeeRows = EmployeeData.map((element) => (
+    const employeeRows = EmployeeData[0].contracts.map((element) => ( // change 0 to dynamic input from props
         <tr key={element.contractID}>
             <td>
                 <Text
@@ -37,8 +37,9 @@ export default function Home() {
     return (
         <NavbarNested>
             <Group>
-                <Title size="h2"></Title>
+                <Title size="h2">Welcome back, {EmployeeData[0].name}</Title>
             </Group>
+            <Text>{EmployeeData[0].email}</Text> 
             <Table>
                 <thead>
                     <tr>
