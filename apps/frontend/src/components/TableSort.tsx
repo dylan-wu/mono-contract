@@ -194,7 +194,6 @@ export function TableSort({ data }: TableSortProps ) {
         value={search}
         onChange={handleSearchChange}
       />
-
       <Table highlightOnHover withBorder
         horizontalSpacing="md"
         verticalSpacing="xs"
@@ -204,12 +203,12 @@ export function TableSort({ data }: TableSortProps ) {
       >
         <thead>
           <tr>
-            <th>Name</th>
-            <th>Email</th>
-            <th>Company Name</th>
-            <th>Department</th>
-            <th>Job title</th>
-            <th>Total Licenses</th>
+            <th>NAME</th>
+            <th>EMAIL</th>
+            <th>COMPANY NAME</th>
+            <th>DEPARTMENT</th>
+            <th>JOB TITLE</th>
+            <th>TOTAL LICENSES</th>
             {/* <Th
               sorted={sortBy === "name"}
               reversed={reverseSortDirection}

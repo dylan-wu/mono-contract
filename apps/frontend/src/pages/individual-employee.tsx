@@ -45,7 +45,7 @@ export default function IndividualEmployee(/**props: any*/) {
     ))
     return (
         <NavbarNested>
-            <Group my="xl" py="xl">
+            <Group my="xs" py="xs">
                 <ActionIcon color="dark">
                     <IconChevronLeft />
                 </ActionIcon>

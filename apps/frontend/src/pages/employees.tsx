@@ -226,7 +226,7 @@ export default function Home(props: Partial<DropzoneProps>) {
           </Button>
         </Group>
       </Modal>
-      <Group my="xl" py="xl" position="apart">
+      <Group my="xs" py="xs" position="apart">
         <Title size="h2">Employees</Title>
         <Button
           onClick={open}
@@ -236,7 +236,6 @@ export default function Home(props: Partial<DropzoneProps>) {
           Upload Employee Data
         </Button>
       </Group>
-
       <TableSort data={tableData}/>
     </NavbarNested>
   );
