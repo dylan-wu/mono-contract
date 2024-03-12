@@ -17,7 +17,6 @@ import {
   IconChevronUp,
   IconSearch,
 } from "@tabler/icons-react";
-import { useRouter } from "next/router";
 
 const useStyles = createStyles((theme) => ({
   th: {
@@ -45,8 +44,11 @@ const useStyles = createStyles((theme) => ({
 
 interface RowData {
   name: string;
-  email: string;
+  department: string;
+  jobTitle: string;
+  totalLicenses: string;
   company: string;
+  email: string;
 }
 
 interface TableSortProps {
@@ -112,7 +114,7 @@ function sortData(
   );
 }
 
-export function TableSort({ data }: TableSortProps) {
+export function TableSort({ data }: TableSortProps ) {
   const [search, setSearch] = useState("");
   const [sortedData, setSortedData] = useState(data);
   const [sortBy, setSortBy] = useState<keyof RowData | null>(null);
@@ -133,7 +135,7 @@ export function TableSort({ data }: TableSortProps) {
     );
   };
 
-  const rows = sortedData.map((row) => (
+  const rows = sortedData.map((row: RowData) => (
     <tr key={row.name}>
       <td>
         <Text
@@ -145,8 +147,41 @@ export function TableSort({ data }: TableSortProps) {
           {row.name}
         </Text>
       </td>
-      <td>{row.email}</td>
-      <td>{row.company}</td>
+      <td>
+        <Text
+          c="dimmed"
+        >
+          {row.email}
+        </Text>
+      </td>
+      <td>
+        <Text
+          c="dimmed"
+        >
+          {row.company}
+        </Text>
+      </td>
+      <td>
+        <Text
+          c="dimmed"
+        >
+          {row.department}
+        </Text>
+      </td>
+      <td>
+        <Text
+          c="dimmed"
+        >
+        {row.jobTitle}
+        </Text>
+      </td>
+      <td>
+        <Text
+          c="dimmed"
+        >
+        {row.totalLicenses}
+        </Text>
+      </td>
     </tr>
   ));
 
@@ -159,15 +194,23 @@ export function TableSort({ data }: TableSortProps) {
         value={search}
         onChange={handleSearchChange}
       />
-      <Table
+
+      <Table highlightOnHover withBorder
         horizontalSpacing="md"
         verticalSpacing="xs"
         miw={700}
         sx={{ tableLayout: "fixed" }}
+        fontSize="xs"
       >
         <thead>
           <tr>
-            <Th
+            <th>Name</th>
+            <th>Email</th>
+            <th>Company Name</th>
+            <th>Department</th>
+            <th>Job title</th>
+            <th>Total Licenses</th>
+            {/* <Th
               sorted={sortBy === "name"}
               reversed={reverseSortDirection}
               onSort={() => setSorting("name")}
@@ -186,8 +229,29 @@ export function TableSort({ data }: TableSortProps) {
               reversed={reverseSortDirection}
               onSort={() => setSorting("company")}
             >
-              Company
+              Company Name
             </Th>
+            <Th
+              sorted={sortBy === "department"}
+              reversed={reverseSortDirection}
+              onSort={() => setSorting("department")}
+            >
+              Department 
+            </Th>
+            <Th
+              sorted={sortBy === "jobTitle"}
+              reversed={reverseSortDirection}
+              onSort={() => setSorting("jobTitle")}
+            >
+              Job Title
+            </Th>
+            <Th
+              sorted={sortBy === "totalLicenses"}
+              reversed={reverseSortDirection}
+              onSort={() => setSorting("totalLicenses")}
+            >
+              Total Licenses
+            </Th> */}
           </tr>
         </thead>
         <tbody>

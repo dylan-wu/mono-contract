@@ -8,7 +8,7 @@ import {
 
 export default function IndividualEmployee(/**props: any*/) { 
 
-    const employeeRows = EmployeeData.find((elem) => elem.name === "Athena"/**props.name*/)?.contracts.map((element) => ( 
+    const employeeRows = EmployeeData.find((elem) => elem.name === "Athena Doe"/**props.name*/)?.contracts.map((element) => ( 
         <tr key={element.contractID}>
             <td>
                 <Text
@@ -45,16 +45,16 @@ export default function IndividualEmployee(/**props: any*/) {
     ))
     return (
         <NavbarNested>
-            <Group>
+            <Group my="xl" py="xl">
                 <ActionIcon color="dark">
                     <IconChevronLeft />
                 </ActionIcon>
                 <div>
-                    <Title size="h2">Welcome back, {EmployeeData[0].name}</Title>
-                    <Text>{EmployeeData[0].email}</Text> 
+                    <Text fz="xl">{EmployeeData[0].name}</Text>
+                    <Text c="dimmed">{EmployeeData[0].email}</Text> 
                 </div>
             </Group>
-            <Table>
+            <Table highlightOnHover withBorder>
                 <thead>
                     <tr>
                         <th>NAME</th>

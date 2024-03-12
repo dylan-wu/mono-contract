@@ -38,81 +38,129 @@ export default function Home(props: Partial<DropzoneProps>) {
   const tableData = [
     {
       name: "Athena Weissnat",
+      department: "Unassigned",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Little - Rippin",
       email: "Elouise.Prohaska@yahoo.com",
     },
     {
       name: "Deangelo Runolfsson",
+      department: "Account Management",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Greenfelder - Krajcik",
       email: "Kadin_Trantow87@yahoo.com",
     },
     {
       name: "Danny Carter",
+      department: "Technology",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Kohler and Sons",
       email: "Marina3@hotmail.com",
     },
     {
       name: "Trace Tremblay PhD",
+      department: "Brand",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Crona, Aufderhar and Senger",
       email: "Antonina.Pouros@yahoo.com",
     },
     {
       name: "Derek Dibbert",
+      department: "Operations",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Gottlieb LLC",
       email: "Abagail29@hotmail.com",
     },
     {
       name: "Viola Bernhard",
+      department: "Operations",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Funk, Rohan and Kreiger",
       email: "Jamie23@hotmail.com",
     },
     {
       name: "Austin Jacobi",
+      department: "R&D",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Botsford - Corwin",
       email: "Genesis42@yahoo.com",
     },
     {
       name: "Hershel Mosciski",
+      department: "Finance",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Okuneva, Farrell and Kilback",
       email: "Idella.Stehr28@yahoo.com",
     },
     {
       name: "Mylene Ebert",
+      department: "Investors",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Kirlin and Sons",
       email: "Hildegard17@hotmail.com",
     },
     {
       name: "Lou Trantow",
+      department: "Interns",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Parisian - Lemke",
       email: "Hillard.Barrows1@hotmail.com",
     },
     {
       name: "Dariana Weimann",
+      department: "Unassigned",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Schowalter - Donnelly",
       email: "Colleen80@gmail.com",
     },
     {
       name: "Dr. Christy Herman",
+      department: "Unassigned",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "VonRueden - Labadie",
       email: "Lilyan98@gmail.com",
     },
     {
       name: "Katelin Schuster",
+      department: "Unassigned",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Jacobson - Smitham",
       email: "Erich_Brekke76@gmail.com",
     },
     {
       name: "Melyna Macejkovic",
+      department: "Unassigned",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Schuster LLC",
       email: "Kylee4@yahoo.com",
     },
     {
       name: "Pinkie Rice",
+      department: "Unassigned",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Wolf, Trantow and Zulauf",
       email: "Fiona.Kutch@hotmail.com",
     },
     {
       name: "Brain Kreiger",
+      department: "Unassigned",
+      jobTitle: "Product Owner",
+      totalLicenses: "5",
       company: "Lueilwitz Group",
       email: "Rico98@hotmail.com",
     },
@@ -189,7 +237,7 @@ export default function Home(props: Partial<DropzoneProps>) {
         </Button>
       </Group>
 
-      <TableSort data={tableData} />
+      <TableSort data={tableData}/>
     </NavbarNested>
   );
 }
