@@ -13,6 +13,7 @@ import {
   Select,
   Text,
   TextInput,
+  NumberInput,
 } from "@mantine/core";
 import {
   IconFileAnalytics,
@@ -24,6 +25,7 @@ import {
   IconPhoto,
   IconUsers,
 } from "@tabler/icons-react";
+
 
 import uploadFileDetails from "../../pages/api/UploadFileDetails";
 import uploadFileToS3 from "../../pages/api/UploadFileToS3";
@@ -135,13 +137,40 @@ export default function Dashboard(
                   edit this as needed:
                 </Text>
                 <TextInput
-                  label="COMPANY NAME"
-                  placeholder="Enter company name"
+                  label="Vendor Name"
+                  defaultValue="OneStream Software LLC"
                 />
-                <Select
-                  label="CONTRACT NAME"
-                  placeholder="Select contract name"
-                  data={["Default", "Salesforce", "Microsoft 365"]}
+                <TextInput
+                  label="CLIENT NAME"
+                  defaultValue="The Texas A&M University System"
+                />
+                <TextInput
+                  label="Start date of contract"
+                  defaultValue="05/17/2021"
+                />
+                <TextInput
+                  label="End date of contract"
+                  defaultValue="5/17/2024"
+                />
+                <TextInput
+                  label="Total cost of the contract"
+                  defaultValue="$49,200 annually"
+                />
+                <NumberInput
+                  label="Total Licenses"
+                  defaultValue={10}
+                />
+                <TextInput
+                  label="DEPARTMENT"
+                  defaultValue="Finance"
+                />
+                <TextInput
+                  label="Description of the service"
+                  defaultValue="SaaS financial management"
+                />
+                <TextInput
+                  label="Renewal terms"
+                  defaultValue="Automatically renew for an additional two years unless notice is given 60 days prior to the end of the initial term, with up to a 5% price increase."
                 />
               </Stack>
             </>
