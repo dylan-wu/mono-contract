@@ -101,27 +101,29 @@ export default function Home() {
   return (
     <NavbarNested>
       <Tabs defaultValue="processed">
-        <Tabs.List>
-          <Tabs.Tab value="processed">
-            <Text fz="1.25rem">Processed</Text>
-          </Tabs.Tab>
-          <Tabs.Tab value="queue">
-            <Text fz="1.25rem">Queue</Text>
-          </Tabs.Tab>
-        </Tabs.List>
+        <Group position="apart">
+          <Tabs.List>
+            <Tabs.Tab value="processed">
+              <Text fz="1.25rem">Processed</Text>
+            </Tabs.Tab>
+            <Tabs.Tab value="queue">
+              <Text fz="1.25rem">Queue</Text>
+            </Tabs.Tab>
+          </Tabs.List>
+          <Group>
+            <Button
+              leftIcon={<IconArrowsSort></IconArrowsSort>}
+              variant="default"
+            >
+              Sort
+            </Button>
+            <Button leftIcon={<IconFilter></IconFilter>} variant="default">
+              Filter
+            </Button>
+          </Group>
+        </Group>
         <Tabs.Panel value="processed" py="xl">
           <Stack h="100%">
-            <Group position="right">
-              <Button
-                leftIcon={<IconArrowsSort></IconArrowsSort>}
-                variant="default"
-              >
-                Sort
-              </Button>
-              <Button leftIcon={<IconFilter></IconFilter>} variant="default">
-                Filter
-              </Button>
-            </Group>
             <Table>
               <thead>
                 <tr>
