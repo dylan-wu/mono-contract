@@ -46,21 +46,6 @@ const navData = [
   { label: "Contracts", icon: IconCloudUpload, link: "/contracts" },
 ];
 
-async function handleFileUpload(
-  file: FileWithPath,
-  companyName: String | undefined
-) {
-  try {
-    // First, get the pre-signed URL
-    const url = await uploadFileDetails(file, companyName);
-    // Next, use the URL to upload the file
-    await uploadFileToS3(url, file, "application/pdf");
-    console.log("File upload process completed successfully.");
-  } catch (error) {
-    console.error("An error occurred during the file upload process:", error);
-  }
-}
-
 export default function Dashboard(
   { children }: { children: React.ReactNode },
   props: Partial<DropzoneProps>
@@ -68,6 +53,7 @@ export default function Dashboard(
   const { user } = useUser();
   const [opened, { open, close }] = useDisclosure(false);
   const openRef = useRef<() => void>(null);
+  const [uploadStatus, setUploadStatus] = useState("");
 
   const [acceptedFiles, setFiles] = useState<FileWithPath[]>([]);
 
@@ -77,6 +63,23 @@ export default function Dashboard(
     .toString()
     .split("@")[1]
     .split(".")[0];
+
+  async function handleFileUpload(
+    file: FileWithPath,
+    companyName: String | undefined
+  ) {
+    try {
+      // First, get the pre-signed URL
+      const url = await uploadFileDetails(file, companyName);
+      // Next, use the URL to upload the file
+      await uploadFileToS3(url, file, "application/pdf");
+      console.log("File upload process completed successfully.");
+      setUploadStatus("success");
+    } catch (error) {
+      console.error("An error occurred during the file upload process:", error);
+      setUploadStatus("failure");
+    }
+  }
 
   return (
     <AppShell style={{ backgroundColor: "#F9FAFB" }}>
@@ -121,57 +124,145 @@ export default function Dashboard(
       </Navbar>
       <Flex direction="column" h="100%">
         <Modal opened={opened} onClose={close} withCloseButton={false} centered>
-          <Stack mb="xl">
-            <Title order={3} c="#232859">
-              Upload Contract
-            </Title>
-            <TextInput
-              label="CONTRACT NAME"
-              placeholder="Enter contract name"
-            />
-            <TextInput label="COMPANY NAME" placeholder="Enter company name" />
-            <Select
-              label="Data Template"
-              placeholder="Select template"
-              data={["Default", "Salesforce", "Microsoft 365"]}
-            />
-          </Stack>
-          <Dropzone
-            onDrop={(files) => setFiles(files)}
-            onReject={(files) => console.log("rejected files", files)}
-            accept={PDF_MIME_TYPE}
-            {...props}
-          >
-            <Group position="center" spacing="xl">
-              <Dropzone.Accept>
-                <IconUpload size="3.2rem" stroke={1.5} />
-              </Dropzone.Accept>
-              <Dropzone.Reject>
-                <IconX size="3.2rem" stroke={1.5} />
-              </Dropzone.Reject>
-              <Dropzone.Idle>
-                <IconPhoto size="3.2rem" stroke={1.5} />
-              </Dropzone.Idle>
+          {uploadStatus == "success" ? (
+            <>
+              <Stack mb="xl">
+                <Title order={3} c="#232859">
+                  Upload Success!
+                </Title>
+                <Text>
+                  Here's a preview of what the data looks like, feel free to
+                  edit this as needed:
+                </Text>
+                <TextInput
+                  label="COMPANY NAME"
+                  placeholder="Enter company name"
+                />
+                <Select
+                  label="CONTRACT NAME"
+                  placeholder="Select contract name"
+                  data={["Default", "Salesforce", "Microsoft 365"]}
+                />
+              </Stack>
+            </>
+          ) : uploadStatus == "failure" ? (
+            <>
+              <Stack mb="xl">
+                <Title order={3} c="#232859">
+                  Upload Failed
+                </Title>
+                <Text>
+                  Something went wrong, try and upload a contract again:
+                </Text>
+                <TextInput
+                  label="CONTRACT NAME"
+                  placeholder="Enter contract name"
+                />
+                <TextInput
+                  label="COMPANY NAME"
+                  placeholder="Enter company name"
+                />
+                <Select
+                  label="Data Template"
+                  placeholder="Select template"
+                  data={["Default", "Salesforce", "Microsoft 365"]}
+                />
+              </Stack>
+              <Dropzone
+                onDrop={(files) => setFiles(files)}
+                onReject={(files) => console.log("rejected files", files)}
+                accept={PDF_MIME_TYPE}
+                {...props}
+              >
+                <Group position="center" spacing="xl">
+                  <Dropzone.Accept>
+                    <IconUpload size="3.2rem" stroke={1.5} />
+                  </Dropzone.Accept>
+                  <Dropzone.Reject>
+                    <IconX size="3.2rem" stroke={1.5} />
+                  </Dropzone.Reject>
+                  <Dropzone.Idle>
+                    <IconPhoto size="3.2rem" stroke={1.5} />
+                  </Dropzone.Idle>
 
-              <div>
-                <Text size="xl" inline>
-                  Drag images here or click to select files
-                </Text>
-                <Text size="sm" color="dimmed" inline mt={7}>
-                  Attach as many files as you like, each file should not exceed
-                  5mb
-                </Text>
-              </div>
-            </Group>
-          </Dropzone>
-          <Group position="right">
-            <Button
-              mt="xl"
-              onClick={() => handleFileUpload(acceptedFiles[0], company)}
-            >
-              Submit Files
-            </Button>
-          </Group>
+                  <div>
+                    <Text size="xl" inline>
+                      Drag images here or click to select files
+                    </Text>
+                    <Text size="sm" color="dimmed" inline mt={7}>
+                      Attach as many files as you like, each file should not
+                      exceed 5mb
+                    </Text>
+                  </div>
+                </Group>
+              </Dropzone>
+              <Group position="right">
+                <Button
+                  mt="xl"
+                  onClick={() => handleFileUpload(acceptedFiles[0], company)}
+                >
+                  Submit Files
+                </Button>
+              </Group>
+            </>
+          ) : (
+            <>
+              <Stack mb="xl">
+                <Title order={3} c="#232859">
+                  Upload Contract
+                </Title>
+                <TextInput
+                  label="CONTRACT NAME"
+                  placeholder="Enter contract name"
+                />
+                <TextInput
+                  label="COMPANY NAME"
+                  placeholder="Enter company name"
+                />
+                <Select
+                  label="Data Template"
+                  placeholder="Select template"
+                  data={["Default", "Salesforce", "Microsoft 365"]}
+                />
+              </Stack>
+              <Dropzone
+                onDrop={(files) => setFiles(files)}
+                onReject={(files) => console.log("rejected files", files)}
+                accept={PDF_MIME_TYPE}
+                {...props}
+              >
+                <Group position="center" spacing="xl">
+                  <Dropzone.Accept>
+                    <IconUpload size="3.2rem" stroke={1.5} />
+                  </Dropzone.Accept>
+                  <Dropzone.Reject>
+                    <IconX size="3.2rem" stroke={1.5} />
+                  </Dropzone.Reject>
+                  <Dropzone.Idle>
+                    <IconPhoto size="3.2rem" stroke={1.5} />
+                  </Dropzone.Idle>
+
+                  <div>
+                    <Text size="xl" inline>
+                      Drag images here or click to select files
+                    </Text>
+                    <Text size="sm" color="dimmed" inline mt={7}>
+                      Attach as many files as you like, each file should not
+                      exceed 5mb
+                    </Text>
+                  </div>
+                </Group>
+              </Dropzone>
+              <Group position="right">
+                <Button
+                  mt="xl"
+                  onClick={() => handleFileUpload(acceptedFiles[0], company)}
+                >
+                  Submit Files
+                </Button>
+              </Group>
+            </>
+          )}
         </Modal>
         {children}
       </Flex>
