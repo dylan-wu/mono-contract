@@ -140,8 +140,8 @@ export function TableSort({ data }: TableSortProps ) {
       <td>
         <Text
           component="a"
-          c="#0B3D91"
           href="/individual-employee"
+          c="#0B3D91"
           tt="capitalize"
         >
           {row.name}
