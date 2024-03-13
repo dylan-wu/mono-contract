@@ -1,4 +1,4 @@
-import { Group, Title, Table, Text, ActionIcon } from "@mantine/core";
+import { Group, Title, Table, Text, ActionIcon, Card, Center } from "@mantine/core";
 import NavbarNested from "../components/layouts/Dashboard";
 import EmployeeData from "../data/employees.json" 
 
@@ -6,6 +6,7 @@ import {
     IconChevronLeft
 } from "@tabler/icons-react";
 import DataCard from "./custom/DataCard";
+import app from "next/app";
 
 const cellStyle: React.CSSProperties = {
     backgroundColor: 'white',
@@ -17,14 +18,31 @@ export default function IndividualEmployee(/**props: any*/) {
     const employeeRows = EmployeeData[0].contracts.map((element) => ( 
         <tr key={element.contractID}>
             <td style={cellStyle}>
-                <Text
-                    component="a"
-                    href="/vendors/salesforce" // make this dynamic to specific vendor
-                    c="#0B3D91"
-                    tt="capitalize"
-                >
-                    {element.companyName}
-                </Text>
+                <Group spacing="xs">
+                    <Card
+                        style={{ backgroundColor: "#FFFFFF" }}
+                        h="25px"
+                        w="25px"
+                    >
+                        <Center w="100%" h="100%">
+                            <img
+                            src={element.logoPath}
+                            style={{
+                                maxWidth: "20px",
+                                maxHeight: "20px",
+                            }}
+                            ></img>
+                        </Center>
+                    </Card>
+                    <Text
+                        component="a"
+                        href="/vendors/salesforce" // make this dynamic to specific vendor
+                        c="#0B3D91"
+                        tt="capitalize"
+                    >
+                        {element.companyName}
+                    </Text>
+                </Group>
             </td>
             <td style={cellStyle}>
                 <Text
