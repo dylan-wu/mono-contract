@@ -1,38 +1,177 @@
 [
     {
-        "name": "Athena Doe",
-        "email": "Athena.doe@talentgroups.com",
-        "contracts": [
-            {
-                "companyName": "Atlassian",
-                "contractID": 346346,
-                "licenses": 4,
-                "amountCost": "$500.00"
-            },
-            {
-                "companyName": "Confluence",
-                "contractID": 354633,
-                "licenses": 1,
-                "amountCost": "$200.00"
-            },
-            {
-                "companyName": "Indeed",
-                "contractID": 235123,
-                "licenses": 5,
-                "amountCost": "$300.00"
-            },
-            {
-                "companyName": "Fountain Job Board",
-                "contractID": 437894,
-                "licenses": 1,
-                "amountCost": "$75.00"
-            },
-            {
-                "companyName": "Slack",
-                "contractID": 343932,
-                "licenses": 1,
-                "amountCost": "$125.00"
-            }
-        ]
+      "name": "Athena Weissnat",
+      "department": "Unassigned",
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "company": "Little - Rippin",
+      "email": "Elouise.Prohaska@yahoo.com",
+      "contracts": [
+        {
+            "companyName": "Atlassian",
+            "contractID": 346346,
+            "licenses": 4,
+            "amountCost": "$500.00"
+        },
+        {
+            "companyName": "Confluence",
+            "contractID": 354633,
+            "licenses": 1,
+            "amountCost": "$200.00"
+        },
+        {
+            "companyName": "Indeed",
+            "contractID": 235123,
+            "licenses": 5,
+            "amountCost": "$300.00"
+        },
+        {
+            "companyName": "Fountain Job Board",
+            "contractID": 437894,
+            "licenses": 1,
+            "amountCost": "$75.00"
+        },
+        {
+            "companyName": "Slack",
+            "contractID": 343932,
+            "licenses": 1,
+            "amountCost": "$125.00"
+        }
+    ]
+    },
+    {
+      "name": "Deangelo Runolfsson",
+      "department": "Account Management",
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "contracts": [],
+      "company": "Greenfelder - Krajcik",
+      "email": "Kadin_Trantow87@yahoo.com"
+    },
+    {
+      "name": "Danny Carter",
+      "department": "Technology",
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "contracts": [],
+      "company": "Kohler and Sons",
+      "email": "Marina3@hotmail.com"
+    },
+    {
+      "name": "Trace Tremblay PhD",
+      "department": "Brand",
+      "contracts": [],
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "company": "Crona, Aufderhar and Senger",
+      "email": "Antonina.Pouros@yahoo.com"
+    },
+    {
+      "name": "Derek Dibbert",
+      "department": "Operations",
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "contracts": [],
+      "company": "Gottlieb LLC",
+      "email": "Abagail29@hotmail.com"
+    },
+    {
+      "name": "Viola Bernhard",
+      "department": "Operations",
+      "jobTitle": "Product Owner",
+      "contracts": [],
+      "totalLicenses": "5",
+      "company": "Funk, Rohan and Kreiger",
+      "email": "Jamie23@hotmail.com"
+    },
+    {
+      "name": "Austin Jacobi",
+      "department": "R&D",
+      "jobTitle": "Product Owner",
+      "contracts": [],
+      "totalLicenses": "5",
+      "company": "Botsford - Corwin",
+      "email": "Genesis42@yahoo.com"
+    },
+    {
+      "name": "Hershel Mosciski",
+      "department": "Finance",
+      "jobTitle": "Product Owner",
+      "contracts": [],
+      "totalLicenses": "5",
+      "company": "Okuneva, Farrell and Kilback",
+      "email": "Idella.Stehr28@yahoo.com"
+    },
+    {
+      "name": "Mylene Ebert",
+      "department": "Investors",
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "contracts": [],
+      "company": "Kirlin and Sons",
+      "email": "Hildegard17@hotmail.com"
+    },
+    {
+      "name": "Lou Trantow",
+      "department": "Interns",
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "contracts": [],
+      "company": "Parisian - Lemke",
+      "email": "Hillard.Barrows1@hotmail.com"
+    },
+    {
+      "name": "Dariana Weimann",
+      "department": "Unassigned",
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "contracts": [],
+      "company": "Schowalter - Donnelly",
+      "email": "Colleen80@gmail.com"
+    },
+    {
+      "name": "Dr. Christy Herman",
+      "department": "Unassigned",
+      "contracts": [],
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "company": "VonRueden - Labadie",
+      "email": "Lilyan98@gmail.com"
+    },
+    {
+      "name": "Katelin Schuster",
+      "department": "Unassigned",
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "company": "Jacobson - Smitham",
+      "contracts": [],
+      "email": "Erich_Brekke76@gmail.com"
+    },
+    {
+      "name": "Melyna Macejkovic",
+      "department": "Unassigned",
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "contracts": [],
+      "company": "Schuster LLC",
+      "email": "Kylee4@yahoo.com"
+    },
+    {
+      "name": "Pinkie Rice",
+      "department": "Unassigned",
+      "contracts": [],
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "company": "Wolf, Trantow and Zulauf",
+      "email": "Fiona.Kutch@hotmail.com"
+    },
+    {
+      "name": "Brain Kreiger",
+      "department": "Unassigned",
+      "contracts": [],
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "company": "Lueilwitz Group",
+      "email": "Rico98@hotmail.com"
     }
-]
+  ]

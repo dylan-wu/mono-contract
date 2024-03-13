@@ -8,7 +8,7 @@ import {
 
 export default function IndividualEmployee(/**props: any*/) { 
 
-    const employeeRows = EmployeeData.find((elem) => elem.name === "Athena Doe"/**props.name*/)?.contracts.map((element) => ( 
+    const employeeRows = EmployeeData[0].contracts.map((element) => ( 
         <tr key={element.contractID}>
             <td>
                 <Text
