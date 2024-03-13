@@ -33,7 +33,7 @@ function sortData(
     );
   }
 
-export default function SearchInput({ data }: TableSortProps) {
+export default function SearchInput({ data }: any) {
     const [sortBy, setSortBy] = useState<keyof RowData | null>(null);
     const [sortedData, setSortedData] = useState(data);
     const [search, setSearch] = useState("");

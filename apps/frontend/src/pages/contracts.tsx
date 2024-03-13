@@ -1,9 +1,12 @@
 import { Group, Text, Title, Badge, Table, Stack, Tabs, Button, TextInput, ActionIcon } from "@mantine/core";
 import ContractData from "../data/contracts.json";
 import PendingData from "../data/pending.json";
-import { IconArrowsSort, IconFilter } from "@tabler/icons-react";
+import { IconArrowsSort, IconFilter, IconSearch } from "@tabler/icons-react";
 import NavbarNested from "../components/layouts/Dashboard";
 import { IconExternalLink, IconFileDownload } from '@tabler/icons-react';
+import { useState } from "react";
+import { filterData, sortData, RowData} from "@/utils/search";
+import SearchInput from "@/components/SearchInput";
 
 const cellStyle: React.CSSProperties = {
   backgroundColor: 'white',
@@ -30,6 +33,10 @@ interface TableDataProp {
   department: string
   service: string
   renewal: string
+}
+
+interface TableSortProp {
+  data: TableDataProp[]
 }
 
 function getRows(data: TableDataProp[]) {
@@ -114,25 +121,24 @@ function getRows(data: TableDataProp[]) {
 } 
 
 export default function Home() {
+  const [onProcessed, setOnProcessed] = useState(true);
   const contractRows = getRows(ContractData)
-
   const pendingRows = getRows(PendingData)
+  
 
   return (
     <NavbarNested>
       <Group my="xs" py="xs" position="apart">
         <Title size="h2">Contracts</Title>
-        <TextInput
-          placeholder="Search by any field"
-        />
+        <SearchInput data={onProcessed ? contractRows : pendingRows}/>
       </Group>
       <Tabs defaultValue="processed">
         <Group position="apart" spacing="xs">
           <Tabs.List>
-            <Tabs.Tab value="processed">
+            <Tabs.Tab value="processed" onClick={() => setOnProcessed(true)}>
               <Text fz="1rem">Processed</Text>
             </Tabs.Tab>
-            <Tabs.Tab value="queue">
+            <Tabs.Tab value="queue" onClick={() => setOnProcessed(false)}>
               <Text fz="1rem">Queue</Text>
             </Tabs.Tab>
           </Tabs.List>
