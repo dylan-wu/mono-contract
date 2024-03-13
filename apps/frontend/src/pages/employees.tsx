@@ -10,7 +10,7 @@ import {
 } from "@mantine/core";
 import { TableSort } from "../components/TableSort";
 import NavbarNested from "../components/layouts/Dashboard";
-import { IconPhoto, IconUpload, IconX } from "@tabler/icons-react";
+import { IconFileDownload, IconPhoto, IconUpload, IconX } from "@tabler/icons-react";
 import { useRef, useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { Dropzone, DropzoneProps, FileWithPath } from "@mantine/dropzone";
@@ -186,14 +186,17 @@ export default function Home(props: Partial<DropzoneProps>) {
         )}
       </Modal>
       <Group my="xs" py="xs" position="apart">
-        <Title size="h2">Employees</Title>
-        <Button
-          onClick={open}
-          leftIcon={<IconUpload size="1.25rem" />}
-          bg="#0B3D91"
-        >
-          Upload Employee Data
-        </Button>
+        <Title size="h2">Employee Table</Title>
+        <Group>
+          <Button
+            onClick={open}
+            leftIcon={<IconUpload size="1.25rem" />}
+            bg="#0B3D91"
+            radius="md"
+          >
+            Upload Employee Data
+          </Button>
+        </Group>
       </Group>
       <TableSort data={EmployeeData}/>
     </NavbarNested>

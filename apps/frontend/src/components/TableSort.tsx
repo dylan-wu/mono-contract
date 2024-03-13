@@ -198,6 +198,7 @@ export function TableSort({ data }: TableSortProps ) {
         icon={<IconSearch size="0.9rem" stroke={1.5} />}
         value={search}
         onChange={handleSearchChange}
+        radius="md"
       />
       <Table highlightOnHover withBorder
         horizontalSpacing="md"

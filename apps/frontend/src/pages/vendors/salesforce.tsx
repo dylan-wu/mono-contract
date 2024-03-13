@@ -19,6 +19,7 @@ import {
   IconDotsVertical,
 } from "@tabler/icons-react";
 import SalesforceData from "../../data/vendors/salesforce.json";
+import DataCard from "../custom/DataCard";
 
 export default function Home() {
   const rows = SalesforceData.breakdown.map((element) => (
@@ -65,31 +66,7 @@ export default function Home() {
 
       <Group grow>
         {SalesforceData.cards.map((data) => (
-          <Card
-            withBorder
-            radius="xl"
-            padding="xl"
-            sx={(theme) => ({
-              backgroundColor:
-                theme.colorScheme === "dark"
-                  ? theme.colors.dark[7]
-                  : theme.white,
-            })}
-          >
-            <Group position="apart" style={{ alignItems: "flex-start" }}>
-              <Flex direction="column">
-                <Text fz="1.15rem" tt="uppercase" fw={500} c="dimmed" mb="xs">
-                  {data.name}
-                </Text>
-                <Text fz="2rem" fw={600} c="#0B3D91" mb="sm">
-                  {data.data}
-                </Text>
-                <Text fz="sm" c="dimmed" italic>
-                  <Badge> {data.change}</Badge> Since last month
-                </Text>
-              </Flex>
-            </Group>
-          </Card>
+          <DataCard name={data.name} data={data.data} chart={data.chart} change={data.change}/>
         ))}
       </Group>
       <Grid mt="md">
