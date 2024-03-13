@@ -42,6 +42,11 @@ const useStyles = createStyles((theme) => ({
   },
 }));
 
+const cellStyle: React.CSSProperties = {
+  backgroundColor: 'white',
+  whiteSpace: "nowrap",
+};
+
 interface RowData {
   name: string;
   department: string;
@@ -137,7 +142,7 @@ export function TableSort({ data }: TableSortProps ) {
 
   const rows = sortedData.map((row: RowData) => (
     <tr key={row.name}>
-      <td>
+      <td style={cellStyle}>
         <Text
           component="a"
           href="/individual-employee"
@@ -147,35 +152,35 @@ export function TableSort({ data }: TableSortProps ) {
           {row.name}
         </Text>
       </td>
-      <td>
+      <td style={cellStyle}>
         <Text
           c="dimmed"
         >
           {row.email}
         </Text>
       </td>
-      <td>
+      <td style={cellStyle}>
         <Text
           c="dimmed"
         >
           {row.company}
         </Text>
       </td>
-      <td>
+      <td style={cellStyle}>
         <Text
           c="dimmed"
         >
           {row.department}
         </Text>
       </td>
-      <td>
+      <td style={cellStyle}>
         <Text
           c="dimmed"
         >
         {row.jobTitle}
         </Text>
       </td>
-      <td>
+      <td style={cellStyle}>
         <Text
           c="dimmed"
         >
@@ -193,6 +198,7 @@ export function TableSort({ data }: TableSortProps ) {
         icon={<IconSearch size="0.9rem" stroke={1.5} />}
         value={search}
         onChange={handleSearchChange}
+        radius="md"
       />
       <Table highlightOnHover withBorder
         horizontalSpacing="md"

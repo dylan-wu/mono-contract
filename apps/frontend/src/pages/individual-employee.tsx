@@ -5,12 +5,18 @@ import EmployeeData from "../data/employees.json"
 import {
     IconChevronLeft
 } from "@tabler/icons-react";
+import DataCard from "./custom/DataCard";
+
+const cellStyle: React.CSSProperties = {
+    backgroundColor: 'white',
+    whiteSpace: "nowrap",
+};
 
 export default function IndividualEmployee(/**props: any*/) { 
 
-    const employeeRows = EmployeeData.find((elem) => elem.name === "Athena Doe"/**props.name*/)?.contracts.map((element) => ( 
+    const employeeRows = EmployeeData[0].contracts.map((element) => ( 
         <tr key={element.contractID}>
-            <td>
+            <td style={cellStyle}>
                 <Text
                     component="a"
                     href="/vendors/salesforce" // make this dynamic to specific vendor
@@ -20,21 +26,21 @@ export default function IndividualEmployee(/**props: any*/) {
                     {element.companyName}
                 </Text>
             </td>
-            <td>
+            <td style={cellStyle}>
                 <Text
                     c="dimmed"
                 >
                     {element.contractID}
                 </Text>
             </td>
-            <td>
+            <td style={cellStyle}>
                 <Text
                     c="dimmed"
                 >
                     {element.licenses}
                 </Text>
             </td>
-            <td>
+            <td style={cellStyle}>
                 <Text
                     c="dimmed"
                 >
@@ -53,6 +59,11 @@ export default function IndividualEmployee(/**props: any*/) {
                     <Text fz="xl">{EmployeeData[0].name}</Text>
                     <Text c="dimmed">{EmployeeData[0].email}</Text> 
                 </div>
+            </Group>
+            <Group grow style={{ margin: "0 0 20px 0"}}>
+                {EmployeeData[0].cards.map((card) => (
+                    <DataCard name={card.name} data={card.data} chart={card.chart} change={card.change}/>
+                ))}
             </Group>
             <Table highlightOnHover withBorder>
                 <thead>
