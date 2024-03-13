@@ -60,6 +60,7 @@ export default function Dashboard(
   const [additionalContracts, setAdditionalContracts] = useState<JSX.Element[]>([]);
   const [isLoading, setIsLoading] = useState(false);
   const [isMount, setIsMount] = useState(true);
+  const [isConfirming, setIsConfirming] = useState(false);
 
   useEffect(() => {
     const another = <TextInput label="CONTRACT NAME" placeholder="Enter contract name" key={numContracts}/> 
@@ -73,9 +74,20 @@ export default function Dashboard(
       setTimeout(() => {
         handleFileUpload(acceptedFiles[0],company);
         setIsLoading(false);
-      }, 2000);
+      }, 5000);
     }
   }, [isLoading])
+
+  useEffect(() => {
+    if (isMount) {
+      setIsMount(false)
+    } else {
+      setTimeout(() => {
+        window.location.href = './contracts'
+        setIsConfirming(false);
+      }, 3000)
+    }
+  }, [isConfirming]);
 
   const [acceptedFiles, setFiles] = useState<FileWithPath[]>([]);
 
@@ -193,8 +205,12 @@ export default function Dashboard(
                   defaultValue="Automatically renew for an additional two years unless notice is given 60 days prior to the end of the initial term, with up to a 5% price increase."
                 />
                 <Group position="right">
-                  <Button leftIcon={<IconCloudUpload />} onClick={() => {window.location.href = './contracts'}}>
-                    Back to Dashboard
+                  <Button 
+                    leftIcon={<IconCloudUpload />} 
+                    onClick={() => setIsConfirming(true)}
+                    loading={isConfirming}
+                  >
+                    Confirm
                   </Button>
                 </Group>
               </Stack>

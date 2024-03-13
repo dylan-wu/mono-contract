@@ -1,9 +1,11 @@
 import { Group, Text, Title, Badge, Table, Stack, Tabs, Button, TextInput, ActionIcon } from "@mantine/core";
 import ContractData from "../data/contracts.json";
 import PendingData from "../data/pending.json";
-import { IconArrowsSort, IconFilter } from "@tabler/icons-react";
+import { IconArrowsSort, IconFilter, IconSearch } from "@tabler/icons-react";
 import NavbarNested from "../components/layouts/Dashboard";
 import { IconExternalLink, IconFileDownload } from '@tabler/icons-react';
+import { useEffect, useState } from "react";
+import { keys } from "@mantine/utils";
 
 const cellStyle: React.CSSProperties = {
   backgroundColor: 'white',
@@ -32,21 +34,50 @@ interface TableDataProp {
   renewal: string
 }
 
+function filterData(data: TableDataProp[], search: string) {
+  const query = search.trim();
+  return data.filter((item) =>
+    keys(data[0]).some((key) => item[key].includes(query))
+  );
+}
+
+function sortData(
+  data: TableDataProp[],
+  payload: { sortBy: keyof TableDataProp | null; reversed: boolean; search: string }
+) {
+  const { sortBy } = payload;
+
+  if (!sortBy) {
+    return filterData(data, payload.search);
+  }
+
+  return filterData(
+    [...data].sort((a, b) => {
+      if (payload.reversed) {
+        return b[sortBy].localeCompare(a[sortBy]);
+      }
+
+      return a[sortBy].localeCompare(b[sortBy]);
+    }),
+    payload.search
+  );
+}
+
 function getRows(data: TableDataProp[]) {
   return (
     data.map((element) => (
       <tr key={element.department}>
         <td style={cellStyle}>
-            <Group spacing="xs">
+            {/* <Group spacing="xs"> */}
               <Text
                 component="a"
                 href="/vendors/salesforce"
                 c="#0B3D91"
               >
-                <u>{element.name}</u>
+                {element.name}
               </Text>
-              <ActionIcon color="#0B3D91" size="xs"><IconExternalLink/></ActionIcon>
-            </Group>
+              {/* <ActionIcon color="#0B3D91" size="xs"><IconExternalLink/></ActionIcon> */}
+            {/* </Group> */}
         </td>
         <td style={{ backgroundColor: 'white' }}>
           <Text 
@@ -56,16 +87,16 @@ function getRows(data: TableDataProp[]) {
           </Text>
         </td>
         <td style={cellStyle}>
-          <Group spacing="xs">
+          {/* <Group spacing="xs"> */}
             <Text 
               component="a"
               c="#0B3D91"
               href="/employees"
             >
-              <u>{element.users}</u>
+              {element.users}
             </Text>
-            <ActionIcon color="#0B3D91" size="xs"><IconExternalLink/></ActionIcon>
-          </Group>
+            {/* <ActionIcon color="#0B3D91" size="xs"><IconExternalLink/></ActionIcon> */}
+          {/* </Group> */}
         </td>
         <td style={cellStyle}>
           <Text 
@@ -114,9 +145,35 @@ function getRows(data: TableDataProp[]) {
 } 
 
 export default function Home() {
-  const contractRows = getRows(ContractData)
+  const [sortBy, setSortBy] = useState<keyof TableDataProp | null>(null);
+  const [search, setSearch] = useState("");
+  const [onProcessed, setOnProcessed] = useState(true);
+  const [sortedProcessedData, setSortedProcessedData] = useState(ContractData);
+  const [sortedQueuedData, setSortedQueuedData] = useState(PendingData);
+  const [reverseSortDirection, setReverseSortDirection] = useState(false);
+  // const [displayedData, setDisplayedData] = useState(getRows(ContractData));
 
-  const pendingRows = getRows(PendingData)
+  // useEffect(() => {
+  //   if (onProcessed) {
+  //     setDisplayedData(getRows(sortedProcessedData))
+  //   } else {
+  //     setDisplayedData(getRows(sortedQueuedData))
+  //   }
+  // }, [search])
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.currentTarget;
+    setSearch(value);
+    if (onProcessed) {
+      setSortedProcessedData(
+        sortData(sortedProcessedData, { sortBy, reversed: reverseSortDirection, search: value })
+      );
+    } else {
+      setSortedQueuedData(
+        sortData(sortedQueuedData, { sortBy, reversed: reverseSortDirection, search: value })
+      );
+    }
+  };
 
   return (
     <NavbarNested>
@@ -124,15 +181,20 @@ export default function Home() {
         <Title size="h2">Contracts</Title>
         <TextInput
           placeholder="Search by any field"
+          mb="md"
+          icon={<IconSearch size="0.9rem" stroke={1.5} />}
+          value={search}
+          onChange={handleSearchChange}
+          radius="md"
         />
       </Group>
       <Tabs defaultValue="processed">
         <Group position="apart" spacing="xs">
           <Tabs.List>
-            <Tabs.Tab value="processed">
+            <Tabs.Tab value="processed" onClick={() => setOnProcessed(true)}>
               <Text fz="1rem">Processed</Text>
             </Tabs.Tab>
-            <Tabs.Tab value="queue">
+            <Tabs.Tab value="queue" onClick={() => setOnProcessed(false)}>
               <Text fz="1rem">Queue</Text>
             </Tabs.Tab>
           </Tabs.List>
@@ -178,7 +240,7 @@ export default function Home() {
                     <th style={headingCellStyle}>RENEWAL TERMS</th>
                   </tr>
                 </thead>
-                <tbody>{contractRows}</tbody>
+                <tbody>{getRows(sortedProcessedData)}</tbody>
               </Table>
             </div>
           </Stack>
@@ -208,7 +270,7 @@ export default function Home() {
                     <th style={headingCellStyle}>RENEWAL TERMS</th>
                   </tr>
                 </thead>
-                <tbody>{pendingRows}</tbody>
+                <tbody>{getRows(sortedQueuedData)}</tbody>
               </Table>
             </div>
           </Stack>

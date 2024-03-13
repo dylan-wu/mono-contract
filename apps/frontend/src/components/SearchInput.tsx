@@ -1,19 +1,33 @@
 import { TextInput } from "@mantine/core";
 import { IconSearch } from "@tabler/icons-react";
 import { ChangeEvent, useState } from "react";
-import { RowData, TableSortProps} from "./commonInterfaces"
 import { keys } from "@mantine/utils";
 
-function filterData(data: RowData[], search: string) {
-    const query = search.toLowerCase().trim();
+interface TableDataProp {
+  name: string,
+  start: string
+  end: string
+  cost: string
+  users: string
+  clients: string
+  licenses: string
+  department: string
+  service: string
+  renewal: string
+}
+
+
+
+function filterData(data: TableDataProp[], search: string) {
+    const query = search.trim();
     return data.filter((item) =>
-      keys(data[0]).some((key) => item[key].toLowerCase().includes(query))
+      keys(data[0]).some((key) => item[key].includes(query))
     );
 }
 
 function sortData(
-    data: RowData[],
-    payload: { sortBy: keyof RowData | null; reversed: boolean; search: string }
+    data: TableDataProp[],
+    payload: { sortBy: keyof TableDataProp | null; reversed: boolean; search: string }
   ) {
     const { sortBy } = payload;
   
@@ -33,12 +47,12 @@ function sortData(
     );
   }
 
-export default function SearchInput({ data }: TableSortProps) {
-    const [sortBy, setSortBy] = useState<keyof RowData | null>(null);
+export default function SearchInput({ data }: any) {
+  const [search, setSearch] = useState("");
+    const [sortBy, setSortBy] = useState<keyof TableDataProp | null>(null);
     const [sortedData, setSortedData] = useState(data);
-    const [search, setSearch] = useState("");
     const [reverseSortDirection, setReverseSortDirection] = useState(false);
-
+    
     const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
         const { value } = event.currentTarget;
         setSearch(value);
