@@ -10,8 +10,8 @@ import {
 } from "@mantine/core";
 import { TableSort } from "../components/TableSort";
 import NavbarNested from "../components/layouts/Dashboard";
-import { IconFileDownload, IconPhoto, IconUpload, IconX } from "@tabler/icons-react";
-import { useRef, useState } from "react";
+import { IconCloudUpload, IconFileDownload, IconPhoto, IconUpload, IconX } from "@tabler/icons-react";
+import { useEffect, useRef, useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { Dropzone, DropzoneProps, FileWithPath } from "@mantine/dropzone";
 
@@ -27,11 +27,24 @@ export default function Home(props: Partial<DropzoneProps>) {
   const openRef = useRef<() => void>(null);
   const [acceptedFiles, setFiles] = useState<FileWithPath[]>([]);
   const [uploadStatus, setUploadStatus] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
+  const [isMount, setIsMount] = useState(true);
 
   const company = user?.emailAddresses[0]
     .toString()
     .split("@")[1]
     .split(".")[0];
+
+  useEffect(() => {
+    if (isMount) {
+      setIsMount(false)
+    } else {
+      setTimeout(() => {
+        handleFileUpload(acceptedFiles[0],company);
+        setIsLoading(false);
+      }, 2000);
+    }
+  }, [isLoading])
 
   async function handleFileUpload(
     file: FileWithPath,
@@ -72,6 +85,11 @@ export default function Home(props: Partial<DropzoneProps>) {
                 placeholder="Select contract name"
                 data={["Default", "Salesforce", "Microsoft 365"]}
               />
+              <Group position="right">
+                <Button leftIcon={<IconCloudUpload />} onClick={() => {window.location.href = './employees'}}>
+                  Back to Dashboard
+                </Button>
+              </Group>
             </Stack>
           </>
         ) : uploadStatus == "failure" ? (
@@ -126,7 +144,7 @@ export default function Home(props: Partial<DropzoneProps>) {
                 mt="xl"
                 onClick={() => handleFileUpload(acceptedFiles[0], company)}
               >
-                Submit Files
+                Submit
               </Button>
             </Group>
           </>
@@ -177,9 +195,18 @@ export default function Home(props: Partial<DropzoneProps>) {
             <Group position="right">
               <Button
                 mt="xl"
-                onClick={() => handleFileUpload(acceptedFiles[0], company)}
+                onClick={() => window.location.href = './employees'}
+                variant="outline"
               >
-                Submit Files
+                Cancel
+              </Button>
+              <Button
+                mt="xl"
+                onClick={() => setIsLoading(true)}
+                id="submit"
+                loading={isLoading}
+              >
+                Submit
               </Button>
             </Group>
           </>

@@ -54,7 +54,7 @@ export default function Home() {
     <NavbarNested>
       <Group grow my="xl" py="xl" position="apart">
         <Group>
-          <ActionIcon color="dark">
+          <ActionIcon color="dark" component="a" href="/contracts">
             <IconChevronLeft />
           </ActionIcon>
           <Card shadow="sm">

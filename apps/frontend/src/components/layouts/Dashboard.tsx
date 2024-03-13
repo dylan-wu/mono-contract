@@ -19,11 +19,12 @@ import {
   IconFileAnalytics,
   IconRefresh,
   IconBell,
-  IconCloudUpload,
   IconUpload,
   IconX,
   IconPhoto,
   IconUsers,
+  IconPlus,
+  IconCloudUpload
 } from "@tabler/icons-react";
 
 
@@ -33,7 +34,7 @@ import uploadFileToS3 from "../../pages/api/UploadFileToS3";
 import { UserButton, useUser } from "@clerk/nextjs";
 import { Link } from "../NavbarLink";
 import { useDisclosure } from "@mantine/hooks";
-import { useRef, useState } from "react";
+import { useRef, useState, useEffect } from "react";
 import {
   Dropzone,
   DropzoneProps,
@@ -42,7 +43,6 @@ import {
 } from "@mantine/dropzone";
 
 const navData = [
-  { label: "Send Report", icon: IconFileAnalytics, link: "#" },
   { label: "Employees", icon: IconUsers, link: "/employees" },
   { label: "Renewals", icon: IconRefresh, link: "/renewals" },
   { label: "Contracts", icon: IconCloudUpload, link: "/contracts" },
@@ -56,6 +56,26 @@ export default function Dashboard(
   const [opened, { open, close }] = useDisclosure(false);
   const openRef = useRef<() => void>(null);
   const [uploadStatus, setUploadStatus] = useState("");
+  const [numContracts, setNumContracts] = useState(1);
+  const [additionalContracts, setAdditionalContracts] = useState<JSX.Element[]>([]);
+  const [isLoading, setIsLoading] = useState(false);
+  const [isMount, setIsMount] = useState(true);
+
+  useEffect(() => {
+    const another = <TextInput label="CONTRACT NAME" placeholder="Enter contract name" key={numContracts}/> 
+    setAdditionalContracts([...additionalContracts, another])
+  }, [numContracts]);
+
+  useEffect(() => {
+    if (isMount) {
+      setIsMount(false)
+    } else {
+      setTimeout(() => {
+        handleFileUpload(acceptedFiles[0],company);
+        setIsLoading(false);
+      }, 2000);
+    }
+  }, [isLoading])
 
   const [acceptedFiles, setFiles] = useState<FileWithPath[]>([]);
 
@@ -98,7 +118,7 @@ export default function Dashboard(
         <Navbar.Section py="sm" pl="md" mb="xl">
           <Button
             onClick={open}
-            leftIcon={<IconUpload />}
+            leftIcon={<IconCloudUpload />}
             sx={(theme) => ({
               backgroundColor: "#0B3D91",
             })}
@@ -172,6 +192,11 @@ export default function Dashboard(
                   label="Renewal terms"
                   defaultValue="Automatically renew for an additional two years unless notice is given 60 days prior to the end of the initial term, with up to a 5% price increase."
                 />
+                <Group position="right">
+                  <Button leftIcon={<IconCloudUpload />} onClick={() => {window.location.href = './contracts'}}>
+                    Back to Dashboard
+                  </Button>
+                </Group>
               </Stack>
             </>
           ) : uploadStatus == "failure" ? (
@@ -194,7 +219,7 @@ export default function Dashboard(
                 <Select
                   label="Data Template"
                   placeholder="Select template"
-                  data={["Default", "Salesforce", "Microsoft 365"]}
+                  data={["Abacus", "InSource", "Custom", "TalentGroups"]}
                 />
               </Stack>
               <Dropzone
@@ -240,10 +265,18 @@ export default function Dashboard(
                 <Title order={3} c="#232859">
                   Upload Contract
                 </Title>
-                <TextInput
-                  label="CONTRACT NAME"
-                  placeholder="Enter contract name"
-                />
+                {additionalContracts.map((contract) => (
+                  contract
+                ))}
+                <Group position="left">
+                  <Button
+                    onClick={()=>setNumContracts(numContracts+1)}
+                    variant="subtle"
+                    leftIcon={<IconPlus />}
+                  >
+                    <Text fz="xs">Add Another Contract</Text>
+                  </Button>
+                </Group>
                 <TextInput
                   label="COMPANY NAME"
                   placeholder="Enter company name"
@@ -251,7 +284,7 @@ export default function Dashboard(
                 <Select
                   label="Data Template"
                   placeholder="Select template"
-                  data={["Default", "Salesforce", "Microsoft 365"]}
+                  data={["Abacus", "InSource", "Custom", "TalentGroups"]}
                 />
               </Stack>
               <Dropzone
@@ -285,9 +318,18 @@ export default function Dashboard(
               <Group position="right">
                 <Button
                   mt="xl"
-                  onClick={() => handleFileUpload(acceptedFiles[0], company)}
+                  onClick={() => window.location.href = './contracts'}
+                  variant="outline"
                 >
-                  Submit Files
+                  Cancel
+                </Button>
+                <Button
+                  mt="xl"
+                  onClick={() => setIsLoading(true)}
+                  id="submit"
+                  loading={isLoading}
+                >
+                  Submit
                 </Button>
               </Group>
             </>

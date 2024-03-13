@@ -165,6 +165,7 @@ export default function Home() {
               <VictoryChart
                 domainPadding={{ x: 15 }}
                 theme={VictoryTheme.material}
+                width={500}
               >
                 <VictoryAxis></VictoryAxis>
                 <VictoryAxis
@@ -182,7 +183,7 @@ export default function Home() {
                     { x: "Jun", y: 698 },
                     { x: "July", y: 439 },
                   ]}
-                  barWidth={12}
+                  barRatio={0.4}
                   cornerRadius={{
                     topLeft: 3,
                     topRight: 3,
@@ -330,7 +331,7 @@ export default function Home() {
           <Flex direction="column" mb="xl">
             <Group position="apart">
               <Title c="#0B3D91" size="h2">
-                2023
+                2024
               </Title>
               <Button
                 size="lg"
@@ -357,8 +358,8 @@ export default function Home() {
                         {month.apps.map((app) => (
                           <Card
                             style={{ backgroundColor: "#FFFFFF" }}
-                            h="50px"
-                            w="50px"
+                            h="40px"
+                            w="40px"
                           >
                             <Center w="100%" h="100%">
                               <img
