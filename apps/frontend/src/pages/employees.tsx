@@ -20,6 +20,7 @@ import uploadFileToS3 from "./api/UploadFileToS3";
 import { useUser } from "@clerk/nextjs";
 
 import EmployeeData from "../data/employees.json"  
+import EmployeeDataToAdd from "../data/employeesToAdd.json"
 
 export default function Home(props: Partial<DropzoneProps>) {
   const { user } = useUser();
@@ -29,6 +30,9 @@ export default function Home(props: Partial<DropzoneProps>) {
   const [uploadStatus, setUploadStatus] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isMount, setIsMount] = useState(true);
+  const [isConfirming, setIsConfirming] = useState(false);
+  const [addAdditionalData, setAddAdditionalData] = useState(false);
+  const [employeeData, setEmployeeData] = useState(EmployeeData);
 
   const company = user?.emailAddresses[0]
     .toString()
@@ -42,9 +46,24 @@ export default function Home(props: Partial<DropzoneProps>) {
       setTimeout(() => {
         handleFileUpload(acceptedFiles[0],company);
         setIsLoading(false);
-      }, 2000);
+      }, 5000);
     }
   }, [isLoading])
+
+  useEffect(() => {
+    if (isMount) {
+      setIsMount(false)
+    } else {
+      setTimeout(() => {
+        window.location.href = './employees'
+        setIsConfirming(false);
+      }, 3000)
+    }
+  }, [isConfirming]);
+
+  useEffect(() => {
+    setEmployeeData(EmployeeDataToAdd);
+  }, [addAdditionalData])
 
   async function handleFileUpload(
     file: FileWithPath,
@@ -86,8 +105,12 @@ export default function Home(props: Partial<DropzoneProps>) {
                 data={["Default", "Salesforce", "Microsoft 365"]}
               />
               <Group position="right">
-                <Button leftIcon={<IconCloudUpload />} onClick={() => {window.location.href = './employees'}}>
-                  Back to Dashboard
+                <Button 
+                  leftIcon={<IconCloudUpload />} 
+                  onClick={() => {setIsConfirming(true)}}
+                  loading={isConfirming}
+                >
+                  Confirm
                 </Button>
               </Group>
             </Stack>
@@ -202,7 +225,7 @@ export default function Home(props: Partial<DropzoneProps>) {
               </Button>
               <Button
                 mt="xl"
-                onClick={() => setIsLoading(true)}
+                onClick={() => {setIsLoading(true); setAddAdditionalData(true)}}
                 id="submit"
                 loading={isLoading}
               >
