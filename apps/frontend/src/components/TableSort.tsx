@@ -60,40 +60,40 @@ interface TableSortProps {
   data: RowData[];
 }
 
-interface ThProps {
-  children: React.ReactNode;
-  reversed: boolean;
-  sorted: boolean;
-  onSort(): void;
-}
+// interface ThProps {
+//   children: React.ReactNode;
+//   reversed: boolean;
+//   sorted: boolean;
+//   onSort(): void;
+// }
 
-function Th({ children, reversed, sorted, onSort }: ThProps) {
-  const { classes } = useStyles();
-  const Icon = sorted
-    ? reversed
-      ? IconChevronUp
-      : IconChevronDown
-    : IconSelector;
-  return (
-    <th className={classes.th}>
-      <UnstyledButton onClick={onSort} className={classes.control}>
-        <Group position="apart">
-          <Text fw={500} fz="sm">
-            {children}
-          </Text>
-          <Center className={classes.icon}>
-            <Icon size="0.9rem" stroke={1.5} />
-          </Center>
-        </Group>
-      </UnstyledButton>
-    </th>
-  );
-}
+// function Th({ children, reversed, sorted, onSort }: ThProps) {
+//   const { classes } = useStyles();
+//   const Icon = sorted
+//     ? reversed
+//       ? IconChevronUp
+//       : IconChevronDown
+//     : IconSelector;
+//   return (
+//     <th className={classes.th}>
+//       <UnstyledButton onClick={onSort} className={classes.control}>
+//         <Group position="apart">
+//           <Text fw={500} fz="sm">
+//             {children}
+//           </Text>
+//           <Center className={classes.icon}>
+//             <Icon size="0.9rem" stroke={1.5} />
+//           </Center>
+//         </Group>
+//       </UnstyledButton>
+//     </th>
+//   );
+// }
 
 function filterData(data: RowData[], search: string) {
-  const query = search.toLowerCase().trim();
-  return data.filter((item) =>
-    keys(data[0]).some((key) => item[key].toLowerCase().includes(query))
+  const query = search.trim();
+  return data.filter((item) => 
+    keys(data[0]).some((key) => item[key].includes(query))
   );
 }
 
