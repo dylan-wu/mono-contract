@@ -96,13 +96,28 @@ export default function Home(props: Partial<DropzoneProps>) {
                 this as needed:
               </Text>
               <TextInput
-                label="COMPANY NAME"
-                placeholder="Enter company name"
+                label="EMPLOYEE NAME"
+                defaultValue="Athena Weissnat"
               />
-              <Select
-                label="CONTRACT NAME"
-                placeholder="Select contract name"
-                data={["Default", "Salesforce", "Microsoft 365"]}
+              <TextInput
+                label="EMPLOYEE EMAIL"
+                defaultValue="Athena.Weissnat@yahoo.com"
+              />
+              <TextInput
+                label="COOMPANY NAME"
+                defaultValue="Little - Rippin"
+              />
+              <TextInput
+                label="DEPARTMENT"
+                defaultValue="Technology"
+              />
+              <TextInput
+                label="JOB TITLE"
+                defaultValue="Product Owner"
+              />
+              <TextInput
+                label="TOTAL LICENSES"
+                defaultValue="5"
               />
               <Group position="right">
                 <Button 
