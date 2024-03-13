@@ -4,7 +4,9 @@
     "start": "2024-03-01",
     "end": "2024-08-31",
     "cost": "$5,000",
-    "licenseCost": "$1,000/month",
+    "users": "125",
+    "clients": "Abacus, Insource Group, Progilisys",
+    "licenses": "1000",
     "department": "HR",
     "service": "Employee Management System",
     "renewal": "Does not auto-renew"
@@ -14,7 +16,9 @@
     "start": "2024-04-10",
     "end": "2025-04-09",
     "cost": "$20,000",
-    "licenseCost": "$1,500/month",
+    "users": "125",
+    "clients": "Abacus, Insource Group, Progilisys",
+    "licenses": "1500",
     "department": "Finance",
     "service": "Accounting Software",
     "renewal": "Auto-renews annually, 3% price increase"
@@ -24,7 +28,9 @@
     "start": "2024-05-20",
     "end": "2024-11-19",
     "cost": "$7,500",
-    "licenseCost": "$750/month",
+    "users": "125",
+    "clients": "Abacus, Insource Group, Progilisys",
+    "licenses": "650",
     "department": "Operations",
     "service": "Project Management Tool",
     "renewal": "Does not auto-renew"
