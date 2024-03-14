@@ -250,9 +250,9 @@ export default function Home(props: Partial<DropzoneProps>) {
           </>
         )}
       </Modal>
-      <Group my="xs" py="xs" position="apart">
-        <Title size="h2">Employee Table</Title>
-        <Group>
+      <Group my="xs" py="xs" position="right">
+        {/* <Title size="h2">Employee Table</Title> */}
+        {/* <Group position="right"> */}
           <Button
             onClick={open}
             leftIcon={<IconUpload size="1.25rem" />}
@@ -261,7 +261,7 @@ export default function Home(props: Partial<DropzoneProps>) {
           >
             Upload Employee Data
           </Button>
-        </Group>
+        {/* </Group> */}
       </Group>
       <TableSort data={EmployeeData}/>
     </NavbarNested>

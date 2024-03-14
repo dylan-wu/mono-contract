@@ -9,6 +9,8 @@ import {
   Center,
   TextInput,
   rem,
+  Button,
+  Title,
 } from "@mantine/core";
 import { keys } from "@mantine/utils";
 import {
@@ -16,6 +18,7 @@ import {
   IconChevronDown,
   IconChevronUp,
   IconSearch,
+  IconFileDownload,
 } from "@tabler/icons-react";
 
 const useStyles = createStyles((theme) => ({
@@ -192,14 +195,27 @@ export function TableSort({ data }: TableSortProps ) {
 
   return (
     <ScrollArea>
-      <TextInput
-        placeholder="Search by any field"
-        mb="md"
-        icon={<IconSearch size="0.9rem" stroke={1.5} />}
-        value={search}
-        onChange={handleSearchChange}
-        radius="md"
-      />
+      <Group position="apart">
+        <Title size="h2">Employee Table</Title>
+        <Group position="right">
+          <TextInput
+            placeholder="Search by any field"
+            mb="md"
+            icon={<IconSearch size="0.9rem" stroke={1.5} />}
+            value={search}
+            onChange={handleSearchChange}
+            radius="md"
+          />
+          <Button
+            leftIcon={<IconFileDownload/>}
+            variant="default"
+            radius="md"
+            mb="md"
+          >
+            Download csv
+          </Button>
+        </Group>
+      </Group>
       <Table highlightOnHover withBorder
         horizontalSpacing="md"
         verticalSpacing="xs"
