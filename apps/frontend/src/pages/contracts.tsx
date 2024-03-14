@@ -151,26 +151,17 @@ export default function Home() {
   const [sortedProcessedData, setSortedProcessedData] = useState(ContractData);
   const [sortedQueuedData, setSortedQueuedData] = useState(PendingData);
   const [reverseSortDirection, setReverseSortDirection] = useState(false);
-  // const [displayedData, setDisplayedData] = useState(getRows(ContractData));
-
-  // useEffect(() => {
-  //   if (onProcessed) {
-  //     setDisplayedData(getRows(sortedProcessedData))
-  //   } else {
-  //     setDisplayedData(getRows(sortedQueuedData))
-  //   }
-  // }, [search])
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.currentTarget;
     setSearch(value);
     if (onProcessed) {
       setSortedProcessedData(
-        sortData(sortedProcessedData, { sortBy, reversed: reverseSortDirection, search: value })
+        sortData(ContractData, { sortBy, reversed: reverseSortDirection, search: value })
       );
     } else {
       setSortedQueuedData(
-        sortData(sortedQueuedData, { sortBy, reversed: reverseSortDirection, search: value })
+        sortData(PendingData, { sortBy, reversed: reverseSortDirection, search: value })
       );
     }
   };

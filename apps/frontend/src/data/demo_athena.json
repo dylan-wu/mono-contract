@@ -1,0 +1,61 @@
+[
+    {
+        "name": "Athena Weissnat",
+        "department": "Operations",
+        "jobTitle": "Product Owner",
+        "totalLicenses": "5",
+        "company": "Little - Rippin",
+        "email": "Athena.Weissnat@yahoo.com",
+        "cards": [
+            {
+            "name": "Total Software Costs",
+            "data": "$1,200",
+            "chart": "70%",
+            "change": "+20%"
+            },
+            {
+            "name": "Total Licenses",
+            "data": "12",
+            "chart": "40%",
+            "change": "+10%"
+            }
+        ],
+        "contracts": [
+            {
+                "companyName": "Salesforce",
+                "logoPath": "/logos/salesforce.png",
+                "contractID": 346346,
+                "licenses": 4,
+                "amountCost": "$500.00"
+            },
+            {
+                "companyName": "Confluence",
+                "contractID": 354633,
+                "logoPath": "/logos/confluence.png",
+                "licenses": 1,
+                "amountCost": "$200.00"
+            },
+            {
+                "companyName": "Indeed",
+                "contractID": 235123,
+                "logoPath": "/logos/indeed.png",
+                "licenses": 5,
+                "amountCost": "$300.00"
+            },
+            {
+                "companyName": "Fountain Job Board",
+                "contractID": 437894,
+                "logoPath": "/logos/fountaininc.jpeg",
+                "licenses": 1,
+                "amountCost": "$75.00"
+            },
+            {
+                "companyName": "Slack",
+                "contractID": 343932,
+                "logoPath": "/logos/slack.png",
+                "licenses": 1,
+                "amountCost": "$125.00"
+            }
+        ]
+    }
+]
