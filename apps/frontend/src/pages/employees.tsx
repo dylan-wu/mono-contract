@@ -7,10 +7,11 @@ import {
   TextInput,
   Title,
   Text,
+  ScrollArea,
+  Table,
 } from "@mantine/core";
-import { TableSort } from "../components/TableSort";
 import NavbarNested from "../components/layouts/Dashboard";
-import { IconCloudUpload, IconFileDownload, IconPhoto, IconUpload, IconX } from "@tabler/icons-react";
+import { IconCloudUpload, IconFileDownload, IconPhoto, IconSearch, IconUpload, IconX } from "@tabler/icons-react";
 import { useEffect, useRef, useState } from "react";
 import { useDisclosure } from "@mantine/hooks";
 import { Dropzone, DropzoneProps, FileWithPath } from "@mantine/dropzone";
@@ -20,7 +21,64 @@ import uploadFileToS3 from "./api/UploadFileToS3";
 import { useUser } from "@clerk/nextjs";
 
 import EmployeeData from "../data/employees.json"  
-import EmployeeDataToAdd from "../data/employeesToAdd.json"
+import { data } from "autoprefixer";
+import { keys } from "@mantine/utils";
+
+const cellStyle: React.CSSProperties = {
+  backgroundColor: 'white',
+  whiteSpace: "nowrap",
+};
+
+interface CardData {
+  name: string
+  data: string
+  chart: string
+  change: string
+}
+
+interface ContractData {
+  companyName: string
+  logoPath: string,
+  contractID: number
+  licenses: number
+  amountCost: string
+}
+
+interface RowData {
+  name: string;
+  department: string;
+  jobTitle: string;
+  totalLicenses: string;
+  company: string;
+  email: string;
+  // cards: CardData[]
+  // contracts: ContractData[]
+}
+
+function filterData(data: RowData[], search: string) {
+  const query = search.trim();
+  return data.filter((item) => 
+    keys(data[0]).some((key) => item[key].includes(query))
+  );
+}
+
+function sortData(
+  data: RowData[],
+  payload: { sortBy: keyof RowData | null; search: string }
+) {
+  const { sortBy } = payload;
+
+  if (!sortBy) {
+    return filterData(data, payload.search);
+  }
+
+  return filterData(
+    [...data].sort((a, b) => {
+      return a[sortBy].localeCompare(b[sortBy]);
+    }),
+    payload.search
+  );
+}
 
 export default function Home(props: Partial<DropzoneProps>) {
   const { user } = useUser();
@@ -31,8 +89,18 @@ export default function Home(props: Partial<DropzoneProps>) {
   const [isLoading, setIsLoading] = useState(false);
   const [isMount, setIsMount] = useState(true);
   const [isConfirming, setIsConfirming] = useState(false);
-  const [addAdditionalData, setAddAdditionalData] = useState(false);
-  const [employeeData, setEmployeeData] = useState(EmployeeData);
+  const [search, setSearch] = useState("");
+  const [sortedData, setSortedData] = useState(EmployeeData);
+  const [sortBy, setSortBy] = useState<keyof RowData | null>(null);
+
+  const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const { value } = event.currentTarget;
+    setSearch(value);
+    console.log(search);
+    setSortedData(
+      sortData(EmployeeData, { sortBy, search: value })
+    );
+  };
 
   const company = user?.emailAddresses[0]
     .toString()
@@ -61,10 +129,6 @@ export default function Home(props: Partial<DropzoneProps>) {
     }
   }, [isConfirming]);
 
-  useEffect(() => {
-    setEmployeeData(EmployeeDataToAdd);
-  }, [addAdditionalData])
-
   async function handleFileUpload(
     file: FileWithPath,
     companyName: String | undefined
@@ -81,6 +145,55 @@ export default function Home(props: Partial<DropzoneProps>) {
       setUploadStatus("failure");
     }
   }
+  const rows = sortedData.map((row: RowData) => (
+    <tr key={row.name}>
+      <td style={cellStyle}>
+        <Text
+          component="a"
+          href="/individual-employee"
+          c="#0B3D91"
+          tt="capitalize"
+        >
+          {row.name}
+        </Text>
+      </td>
+      <td style={cellStyle}>
+        <Text
+          c="dimmed"
+        >
+          {row.email}
+        </Text>
+      </td>
+      <td style={cellStyle}>
+        <Text
+          c="dimmed"
+        >
+          {row.company}
+        </Text>
+      </td>
+      <td style={cellStyle}>
+        <Text
+          c="dimmed"
+        >
+          {row.department}
+        </Text>
+      </td>
+      <td style={cellStyle}>
+        <Text
+          c="dimmed"
+        >
+        {row.jobTitle}
+        </Text>
+      </td>
+      <td style={cellStyle}>
+        <Text
+          c="dimmed"
+        >
+        {row.totalLicenses}
+        </Text>
+      </td>
+    </tr>
+  ));
 
   return (
     <NavbarNested>
@@ -240,7 +353,7 @@ export default function Home(props: Partial<DropzoneProps>) {
               </Button>
               <Button
                 mt="xl"
-                onClick={() => {setIsLoading(true); setAddAdditionalData(true)}}
+                onClick={() => {setIsLoading(true)}}
                 id="submit"
                 loading={isLoading}
               >
@@ -250,20 +363,70 @@ export default function Home(props: Partial<DropzoneProps>) {
           </>
         )}
       </Modal>
-      <Group my="xs" py="xs" position="right">
-        {/* <Title size="h2">Employee Table</Title> */}
-        {/* <Group position="right"> */}
-          <Button
-            onClick={open}
-            leftIcon={<IconUpload size="1.25rem" />}
-            bg="#0B3D91"
-            radius="md"
-          >
-            Upload Employee Data
-          </Button>
-        {/* </Group> */}
-      </Group>
-      <TableSort data={EmployeeData}/>
+      <ScrollArea>
+        <Group my="xs" py="xs" position="apart">
+          <Title size="h2">Employee Table</Title>
+          <Group position="right">
+            <TextInput
+              placeholder="Search by any field"
+              mb="md"
+              icon={<IconSearch size="0.9rem" stroke={1.5} />}
+              value={search}
+              onChange={handleSearchChange}
+              radius="md"
+              id="search"
+            />
+            <Button
+              leftIcon={<IconFileDownload/>}
+              variant="default"
+              radius="md"
+              mb="md"
+            >
+              Download csv
+            </Button>
+            <Button
+              onClick={open}
+              leftIcon={<IconUpload size="1.25rem" />}
+              bg="#0B3D91"
+              radius="md"
+              mb="md"
+            >
+              Upload Employee Data
+            </Button>
+          </Group>
+        </Group>
+        <Table highlightOnHover withBorder
+          horizontalSpacing="md"
+          verticalSpacing="xs"
+          miw={700}
+          sx={{ tableLayout: "fixed" }}
+          fontSize="xs"
+        >
+          <thead>
+            <tr>
+              <th>NAME</th>
+              <th>EMAIL</th>
+              <th>COMPANY NAME</th>
+              <th>DEPARTMENT</th>
+              <th>JOB TITLE</th>
+              <th>TOTAL LICENSES</th>
+            </tr>
+          </thead>
+          <tbody>
+            {rows.length > 0 ? (
+              rows
+            ) : (
+              <tr>
+                <td colSpan={Object.keys(sortedData[0]).length}>
+                  <Text weight={500} align="center">
+                    Nothing found
+                  </Text>
+                </td>
+              </tr>
+            )}
+          </tbody>
+        </Table>
+      </ScrollArea>
     </NavbarNested>
   );
 }

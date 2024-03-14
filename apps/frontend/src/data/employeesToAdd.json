@@ -1,211 +1,211 @@
 [
-{
-    "name": "Athena Weissnat",
-    "department": "Unassigned",
-    "jobTitle": "Product Owner",
-    "totalLicenses": "5",
-    "company": "Little - Rippin",
-    "email": "Athena.Weissnat@yahoo.com",
-    "cards": [
-        {
-        "name": "Total Software Costs",
-        "data": "$1200",
-        "chart": "70%",
-        "change": "+20%"
-        },
-        {
-        "name": "Total Licenses",
-        "data": "12",
-        "chart": "40%",
-        "change": "+10%"
-        }
-    ],
-    "contracts": [
-        {
-            "companyName": "Salesforce",
-            "logoPath": "/logos/salesforce.png",
-            "contractID": 346346,
-            "licenses": 4,
-            "amountCost": "$500.00"
-        },
-        {
-            "companyName": "Confluence",
-            "contractID": 354633,
-            "logoPath": "/logos/confluence.png",
-            "licenses": 1,
-            "amountCost": "$200.00"
-        },
-        {
-            "companyName": "Indeed",
-            "contractID": 235123,
-            "logoPath": "/logos/indeed.png",
-            "licenses": 5,
-            "amountCost": "$300.00"
-        },
-        {
-            "companyName": "Fountain Job Board",
-            "contractID": 437894,
-            "logoPath": "/logos/fountaininc.jpeg",
-            "licenses": 1,
-            "amountCost": "$75.00"
-        },
-        {
-            "companyName": "Slack",
-            "contractID": 343932,
-            "logoPath": "/logos/slack.png",
-            "licenses": 1,
-            "amountCost": "$125.00"
-        }
-    ]
+  {
+      "name": "Athena Weissnat",
+      "department": "Operations",
+      "jobTitle": "Product Owner",
+      "totalLicenses": "5",
+      "company": "Little - Rippin",
+      "email": "Athena.Weissnat@yahoo.com",
+      "cards": [
+          {
+          "name": "Total Software Costs",
+          "data": "$1,200",
+          "chart": "70%",
+          "change": "+20%"
+          },
+          {
+          "name": "Total Licenses",
+          "data": "12",
+          "chart": "40%",
+          "change": "+10%"
+          }
+      ],
+      "contracts": [
+          {
+              "companyName": "Salesforce",
+              "logoPath": "/logos/salesforce.png",
+              "contractID": 346346,
+              "licenses": 4,
+              "amountCost": "$500.00"
+          },
+          {
+              "companyName": "Confluence",
+              "contractID": 354633,
+              "logoPath": "/logos/confluence.png",
+              "licenses": 1,
+              "amountCost": "$200.00"
+          },
+          {
+              "companyName": "Indeed",
+              "contractID": 235123,
+              "logoPath": "/logos/indeed.png",
+              "licenses": 5,
+              "amountCost": "$300.00"
+          },
+          {
+              "companyName": "Fountain Job Board",
+              "contractID": 437894,
+              "logoPath": "/logos/fountaininc.jpeg",
+              "licenses": 1,
+              "amountCost": "$75.00"
+          },
+          {
+              "companyName": "Slack",
+              "contractID": 343932,
+              "logoPath": "/logos/slack.png",
+              "licenses": 1,
+              "amountCost": "$125.00"
+          }
+      ]
+      },
+      {
+          "name": "Deangelo Runolfsson",
+          "department": "Account Management",
+          "jobTitle": "Sales manager",
+          "totalLicenses": "15",
+          "cards": [],
+          "contracts": [],
+          "company": "Greenfelder - Krajcik",
+          "email": "Deangelo87@yahoo.com"
+      },
+      {
+          "name": "Danny Carter",
+          "department": "Technology",
+          "jobTitle": "Marketing Specialist",
+          "totalLicenses": "10",
+          "cards": [],
+          "contracts": [],
+          "company": "Kohler and Sons",
+          "email": "Danny3@hotmail.com"
+      },
+      {
+          "name": "Trace Tremblay PhD",
+          "department": "Brand",
+          "contracts": [],
+          "cards": [],
+          "jobTitle": "Financial Analyst",
+          "totalLicenses": "8",
+          "company": "Crona, Aufderhar and Senger",
+          "email": "Trace.Tremblay@yahoo.com"
+      },
+    {
+      "name": "Derek Dibbert",
+      "department": "Operations",
+      "jobTitle": "IT Director",
+      "totalLicenses": "8",
+      "cards": [],
+      "contracts": [],
+      "company": "Gottlieb LLC",
+      "email": "Derek29@hotmail.com"
     },
     {
-        "name": "Deangelo Runolfsson",
-        "department": "Account Management",
-        "jobTitle": "Sales manager",
-        "totalLicenses": "15",
-        "cards": [],
-        "contracts": [],
-        "company": "Greenfelder - Krajcik",
-        "email": "Deangelo87@yahoo.com"
+      "name": "Viola Bernhard",
+      "department": "Operations",
+      "jobTitle": "Operations Manager",
+      "contracts": [],
+      "totalLicenses": "12",
+      "cards": [],
+      "company": "Funk, Rohan and Kreiger",
+      "email": "Viola23@hotmail.com"
     },
     {
-        "name": "Danny Carter",
-        "department": "Technology",
-        "jobTitle": "Marketing Specialist",
-        "totalLicenses": "10",
-        "cards": [],
-        "contracts": [],
-        "company": "Kohler and Sons",
-        "email": "Danny3@hotmail.com"
+      "name": "Austin Jacobi",
+      "department": "R&D",
+      "jobTitle": "R&D Engineer",
+      "contracts": [],
+      "cards": [],
+      "totalLicenses": "20",
+      "company": "Botsford - Corwin",
+      "email": "Jacobi42@yahoo.com"
     },
     {
-        "name": "Trace Tremblay PhD",
-        "department": "Brand",
-        "contracts": [],
-        "cards": [],
-        "jobTitle": "Financial Analyst",
-        "totalLicenses": "8",
-        "company": "Crona, Aufderhar and Senger",
-        "email": "Trace.Tremblay@yahoo.com"
+      "name": "Hershel Mosciski",
+      "department": "Finance",
+      "jobTitle": "HR Manager",
+      "contracts": [],
+      "totalLicenses": "18",
+      "cards": [],
+      "company": "Okuneva, Farrell and Kilback",
+      "email": "Mosciski.Hershel@yahoo.com"
     },
-  {
-    "name": "Derek Dibbert",
-    "department": "Operations",
-    "jobTitle": "IT Director",
-    "totalLicenses": "8",
-    "cards": [],
-    "contracts": [],
-    "company": "Gottlieb LLC",
-    "email": "Derek29@hotmail.com"
-  },
-  {
-    "name": "Viola Bernhard",
-    "department": "Operations",
-    "jobTitle": "Operations Manager",
-    "contracts": [],
-    "totalLicenses": "12",
-    "cards": [],
-    "company": "Funk, Rohan and Kreiger",
-    "email": "Viola23@hotmail.com"
-  },
-  {
-    "name": "Austin Jacobi",
-    "department": "R&D",
-    "jobTitle": "R&D Engineer",
-    "contracts": [],
-    "cards": [],
-    "totalLicenses": "20",
-    "company": "Botsford - Corwin",
-    "email": "Jacobi42@yahoo.com"
-  },
-  {
-    "name": "Hershel Mosciski",
-    "department": "Finance",
-    "jobTitle": "HR Manager",
-    "contracts": [],
-    "totalLicenses": "18",
-    "cards": [],
-    "company": "Okuneva, Farrell and Kilback",
-    "email": "Mosciski.Hershel@yahoo.com"
-  },
-  {
-    "name": "Mylene Ebert",
-    "department": "Investors",
-    "jobTitle": "Administrative Assistant",
-    "totalLicenses": "11",
-    "contracts": [],
-    "cards": [],
-    "company": "Kirlin and Sons",
-    "email": "Ebert17@hotmail.com"
-  },
-  {
-    "name": "Lou Trantow",
-    "department": "Interns",
-    "jobTitle": "Customer Support Specialist",
-    "totalLicenses": "9",
-    "contracts": [],
-    "cards": [],
-    "company": "Parisian - Lemke",
-    "email": "Trantow.Lou1@hotmail.com"
-  },
-  {
-    "name": "Dariana Weimann",
-    "department": "Unassigned",
-    "jobTitle": "Purchasing Manager",
-    "totalLicenses": "14",
-    "contracts": [],
-    "cards": [],
-    "company": "Schowalter - Donnelly",
-    "email": "Colleen80@gmail.com"
-  },
-  {
-    "name": "Dr. Christy Herman",
-    "department": "Unassigned",
-    "contracts": [],
-    "jobTitle": "IT Director",
-    "cards": [],
-    "totalLicenses": "16",
-    "company": "VonRueden - Labadie",
-    "email": "Lilyan98@gmail.com"
-  },
-  {
-    "name": "Katelin Schuster",
-    "department": "Unassigned",
-    "jobTitle": "R&D Engineer",
-    "cards": [],
-    "totalLicenses": "14",
-    "company": "Jacobson - Smitham",
-    "contracts": [],
-    "email": "Erich_Brekke76@gmail.com"
-  },
-  {
-    "name": "Melyna Macejkovic",
-    "department": "Unassigned",
-    "jobTitle": "HR Manager",
-    "totalLicenses": "9",
-    "cards": [],
-    "contracts": [],
-    "company": "Schuster LLC",
-    "email": "Macejkovic4@yahoo.com"
-  },
-  {
-    "name": "Pinkie Rice",
-    "department": "Unassigned",
-    "contracts": [],
-    "cards": [],
-    "jobTitle": "Financial Analyst",
-    "totalLicenses": "10",
-    "company": "Wolf, Trantow and Zulauf",
-    "email": "Rice.Pinkie@hotmail.com"
-  },
-  {
-    "name": "Brain Kreiger",
-    "cards": [],
-    "department": "Unassigned",
-    "contracts": [],
-    "jobTitle": "Sales Manager",
-    "totalLicenses": "15",
-    "company": "Lueilwitz Group",
-    "email": "Kreiger98@hotmail.com"
-  }
-]
+    {
+      "name": "Mylene Ebert",
+      "department": "Investors",
+      "jobTitle": "Administrative Assistant",
+      "totalLicenses": "11",
+      "contracts": [],
+      "cards": [],
+      "company": "Kirlin and Sons",
+      "email": "Ebert17@hotmail.com"
+    },
+    {
+      "name": "Lou Trantow",
+      "department": "Interns",
+      "jobTitle": "Customer Support Specialist",
+      "totalLicenses": "9",
+      "contracts": [],
+      "cards": [],
+      "company": "Parisian - Lemke",
+      "email": "Trantow.Lou1@hotmail.com"
+    },
+    {
+      "name": "Dariana Weimann",
+      "department": "Operations",
+      "jobTitle": "Purchasing Manager",
+      "totalLicenses": "14",
+      "contracts": [],
+      "cards": [],
+      "company": "Schowalter - Donnelly",
+      "email": "Colleen80@gmail.com"
+    },
+    {
+      "name": "Dr. Christy Herman",
+      "department": "Operations",
+      "contracts": [],
+      "jobTitle": "IT Director",
+      "cards": [],
+      "totalLicenses": "16",
+      "company": "VonRueden - Labadie",
+      "email": "Lilyan98@gmail.com"
+    },
+    {
+      "name": "Katelin Schuster",
+      "department": "Operations",
+      "jobTitle": "R&D Engineer",
+      "cards": [],
+      "totalLicenses": "14",
+      "company": "Jacobson - Smitham",
+      "contracts": [],
+      "email": "Erich_Brekke76@gmail.com"
+    },
+    {
+      "name": "Melyna Macejkovic",
+      "department": "Operations",
+      "jobTitle": "HR Manager",
+      "totalLicenses": "9",
+      "cards": [],
+      "contracts": [],
+      "company": "Schuster LLC",
+      "email": "Macejkovic4@yahoo.com"
+    },
+    {
+      "name": "Pinkie Rice",
+      "department": "Operations",
+      "contracts": [],
+      "cards": [],
+      "jobTitle": "Financial Analyst",
+      "totalLicenses": "10",
+      "company": "Wolf, Trantow and Zulauf",
+      "email": "Rice.Pinkie@hotmail.com"
+    },
+    {
+      "name": "Brain Kreiger",
+      "cards": [],
+      "department": "Operations",
+      "contracts": [],
+      "jobTitle": "Sales Manager",
+      "totalLicenses": "15",
+      "company": "Lueilwitz Group",
+      "email": "Kreiger98@hotmail.com"
+    }
+  ]

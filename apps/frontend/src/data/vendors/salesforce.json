@@ -26,12 +26,12 @@
     {
       "name": "Sales Cloud",
       "cost": "$25,000",
-      "users": "125"
+      "users": "134"
     },
     {
       "name": "Commerce Cloud",
       "cost": "$75,000",
-      "users": "125"
+      "users": "112"
     },
     {
       "name": "Revenue Cloud",
@@ -41,17 +41,17 @@
     {
       "name": "Marketing Cloud",
       "cost": "$20,000",
-      "users": "125"
+      "users": "100"
     },
     {
       "name": "Experience Cloud",
       "cost": "$15,000",
-      "users": "125"
+      "users": "80"
     },
     {
       "name": "Analytics Cloud",
       "cost": "$31,000",
-      "users": "125"
+      "users": "220"
     }
   ]
 }

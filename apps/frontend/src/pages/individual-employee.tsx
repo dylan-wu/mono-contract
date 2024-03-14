@@ -1,6 +1,6 @@
 import { Group, Title, Table, Text, ActionIcon, Card, Center } from "@mantine/core";
 import NavbarNested from "../components/layouts/Dashboard";
-import EmployeeData from "../data/employees.json" 
+import EmployeeData from "../data/demo_athena.json" 
 
 import {
     IconChevronLeft
