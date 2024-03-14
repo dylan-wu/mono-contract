@@ -168,12 +168,12 @@ export default function Home() {
 
   return (
     <NavbarNested>
-      <Group my="xs" py="xs" position="apart">
-        <Title size="h2">Contracts</Title>
+      <Group my="xs" position="apart">
+        <Title size="h2" color="#0B3D91">Contracts</Title>
         <TextInput
-          placeholder="Search by any field"
+          placeholder="Search here..."
           mb="md"
-          icon={<IconSearch size="0.9rem" stroke={1.5} />}
+          rightSection={<IconSearch size="0.9rem" stroke={1.5} />}
           value={search}
           onChange={handleSearchChange}
           radius="md"
@@ -182,26 +182,35 @@ export default function Home() {
       <Tabs defaultValue="processed">
         <Group position="apart" spacing="xs">
           <Tabs.List>
-            <Tabs.Tab value="processed" onClick={() => setOnProcessed(true)}>
+            <Tabs.Tab color="blue.9" value="processed" onClick={() => setOnProcessed(true)}>
               <Text fz="1rem">Processed</Text>
             </Tabs.Tab>
-            <Tabs.Tab value="queue" onClick={() => setOnProcessed(false)}>
+            <Tabs.Tab color="blue.9" value="queue" onClick={() => setOnProcessed(false)}>
               <Text fz="1rem">Queue</Text>
             </Tabs.Tab>
           </Tabs.List>
           <Group>
             <Button
-              leftIcon={<IconArrowsSort></IconArrowsSort>}
-              variant="default"
+              leftIcon={<IconArrowsSort/>}
+              variant="outline"
+              color="blue.9"
+              c="#0B3D91"
             >
               Sort
             </Button>
-            <Button leftIcon={<IconFilter></IconFilter>} variant="default">
+            <Button 
+              leftIcon={<IconFilter/>} 
+              variant="outline"
+              color="blue.9"
+              c="#0B3D91"
+            >
               Filter
             </Button>
             <Button
               leftIcon={<IconFileDownload/>}
-              variant="default"
+              variant="outline"
+              color="blue.9"
+              c="#0B3D91"
             >
               Download csv
             </Button>
