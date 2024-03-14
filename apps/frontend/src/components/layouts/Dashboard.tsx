@@ -209,6 +209,7 @@ export default function Dashboard(
                     leftIcon={<IconCloudUpload />} 
                     onClick={() => setIsConfirming(true)}
                     loading={isConfirming}
+                    bg="#0B3D91"
                   >
                     Confirm
                   </Button>
@@ -270,6 +271,8 @@ export default function Dashboard(
                 <Button
                   mt="xl"
                   onClick={() => handleFileUpload(acceptedFiles[0], company)}
+                  color="blue.9"
+                  c="#0B3D91"
                 >
                   Submit Files
                 </Button>
@@ -289,6 +292,7 @@ export default function Dashboard(
                     onClick={()=>setNumContracts(numContracts+1)}
                     variant="subtle"
                     leftIcon={<IconPlus />}
+                    color="blue.9"
                   >
                     <Text fz="xs">Add Another Contract</Text>
                   </Button>
@@ -336,6 +340,8 @@ export default function Dashboard(
                   mt="xl"
                   onClick={() => window.location.href = './contracts'}
                   variant="outline"
+                  color="blue.9"
+                  c="#0B3D91"
                 >
                   Cancel
                 </Button>
@@ -344,6 +350,7 @@ export default function Dashboard(
                   onClick={() => setIsLoading(true)}
                   id="submit"
                   loading={isLoading}
+                  bg="#0B3D91"
                 >
                   Submit
                 </Button>

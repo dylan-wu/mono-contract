@@ -237,6 +237,7 @@ export default function Home(props: Partial<DropzoneProps>) {
                   leftIcon={<IconCloudUpload />} 
                   onClick={() => {setIsConfirming(true)}}
                   loading={isConfirming}
+                  bg="#0B3D91"
                 >
                   Confirm
                 </Button>
@@ -256,10 +257,9 @@ export default function Home(props: Partial<DropzoneProps>) {
                 label="COMPANY NAME"
                 placeholder="Enter company name"
               />
-              <Select
+              <TextInput
                 label="CONTRACT NAME"
                 placeholder="Select contract name"
-                data={["Default", "Salesforce", "Microsoft 365"]}
               />
             </Stack>
             <Dropzone
@@ -294,6 +294,7 @@ export default function Home(props: Partial<DropzoneProps>) {
               <Button
                 mt="xl"
                 onClick={() => handleFileUpload(acceptedFiles[0], company)}
+                bg="#0B3D91"
               >
                 Submit
               </Button>
@@ -309,10 +310,9 @@ export default function Home(props: Partial<DropzoneProps>) {
                 label="COMPANY NAME"
                 placeholder="Enter company name"
               />
-              <Select
+              <TextInput
                 label="CONTRACT NAME"
                 placeholder="Select contract name"
-                data={["Default", "Salesforce", "Microsoft 365"]}
               />
             </Stack>
             <Dropzone
@@ -348,6 +348,8 @@ export default function Home(props: Partial<DropzoneProps>) {
                 mt="xl"
                 onClick={() => window.location.href = './employees'}
                 variant="outline"
+                color="blue.9"
+                c="#0B3D91"
               >
                 Cancel
               </Button>
@@ -356,6 +358,7 @@ export default function Home(props: Partial<DropzoneProps>) {
                 onClick={() => {setIsLoading(true)}}
                 id="submit"
                 loading={isLoading}
+                bg="#0B3D91"
               >
                 Submit
               </Button>
@@ -365,12 +368,12 @@ export default function Home(props: Partial<DropzoneProps>) {
       </Modal>
       <ScrollArea>
         <Group my="xs" py="xs" position="apart">
-          <Title size="h2">Employee Table</Title>
+          <Title size="h2" mb="md" color="#00008B">Employee Table</Title>
           <Group position="right">
             <TextInput
-              placeholder="Search by any field"
+              placeholder="Search here..."
               mb="md"
-              icon={<IconSearch size="0.9rem" stroke={1.5} />}
+              rightSection={<IconSearch size="0.9rem" stroke={1.5} />}
               value={search}
               onChange={handleSearchChange}
               radius="md"
@@ -378,18 +381,20 @@ export default function Home(props: Partial<DropzoneProps>) {
             />
             <Button
               leftIcon={<IconFileDownload/>}
-              variant="default"
+              variant="outline"
               radius="md"
               mb="md"
+              color="blue.9"
+              c="#0B3D91"
             >
               Download csv
             </Button>
             <Button
               onClick={open}
               leftIcon={<IconUpload size="1.25rem" />}
-              bg="#0B3D91"
               radius="md"
               mb="md"
+              bg="#0B3D91"
             >
               Upload Employee Data
             </Button>
