@@ -11,10 +11,12 @@ import {
   Image,
   Table,
   Grid,
+  NativeSelect,
   Select,
 } from "@mantine/core";
 import {
   IconCalendarEvent,
+  IconChevronDown,
   IconChevronLeft,
   IconChevronRight,
   IconDotsVertical,
@@ -62,12 +64,18 @@ export default function Home() {
             <Image width={50} src="/logos/salesforce.png" />
           </Card>
           <Title size="h2">Salesforce</Title>
-          <Select
-            defaultValue="Pending Feedback"
-            data={["Needs Consolidation", "Active", "Evaluate", "Pending Feedback", "Not Renewing"]}
-            color="#0B3D91"
+          {/* <Button
             radius="xl"
-          />
+          > */}
+            <Select
+              defaultValue="Pending Feedback"
+              data={["Needs Consolidation", "Active", "Evaluate", "Pending Feedback", "Not Renewing"]}
+              variant="filled"
+              radius="xl"
+              c="#0B3D91"
+              rightSection={<IconChevronDown/>}
+            />
+          {/* </Button> */}
         </Group>
       </Group>
 
