@@ -202,7 +202,7 @@ export default function Dashboard(
                 <NavLink label="Specific Employee View"
                   
                   component="a" 
-                  href="/individual-employees"
+                  href="/individual-employee"
                   variant="subtle"
                   color="blue.9"
                   active
