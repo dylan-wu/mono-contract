@@ -21,6 +21,7 @@ import uploadFileToS3 from "./api/UploadFileToS3";
 import { useUser } from "@clerk/nextjs";
 
 import EmployeeData from "../data/employees.json"  
+import EmployeeDataToAdd from "../data/employeesToAdd.json"
 import { data } from "autoprefixer";
 import { keys } from "@mantine/utils";
 
@@ -123,7 +124,6 @@ export default function Home(props: Partial<DropzoneProps>) {
       setIsMount(false)
     } else {
       setTimeout(() => {
-        window.location.href = './employees'
         setIsConfirming(false);
       }, 3000)
     }
@@ -235,7 +235,8 @@ export default function Home(props: Partial<DropzoneProps>) {
               <Group position="right">
                 <Button 
                   leftIcon={<IconCloudUpload />} 
-                  onClick={() => {setIsConfirming(true)}}
+                  onClick={() => {setIsConfirming(true), 
+                    setSortedData([...EmployeeDataToAdd, ...sortedData])}}
                   loading={isConfirming}
                   bg="#0B3D91"
                 >
