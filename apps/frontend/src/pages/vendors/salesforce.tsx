@@ -1,6 +1,5 @@
 import NavbarNested from "@/components/layouts/Dashboard";
 import {
-  Flex,
   Group,
   Title,
   Text,
@@ -11,20 +10,20 @@ import {
   Image,
   Table,
   Grid,
-  NativeSelect,
   Select,
+  Modal,
 } from "@mantine/core";
 import {
-  IconCalendarEvent,
   IconChevronDown,
   IconChevronLeft,
-  IconChevronRight,
-  IconDotsVertical,
 } from "@tabler/icons-react";
 import SalesforceData from "../../data/vendors/salesforce.json";
 import DataCard from "../custom/DataCard";
+import { useDisclosure } from "@mantine/hooks";
 
 export default function Home() {
+  const [opened, { open, close }] = useDisclosure(false);
+  
   const rows = SalesforceData.breakdown.map((element) => (
     <tr key={element.name}>
       <td>
@@ -64,18 +63,18 @@ export default function Home() {
             <Image width={50} src="/logos/salesforce.png" />
           </Card>
           <Title size="h2">Salesforce</Title>
-          {/* <Button
+          <Select
+            defaultValue="Pending Feedback"
+            data={["Needs Consolidation", "Active", "Evaluate", "Pending Feedback", "Not Renewing"]}
+            variant="filled"
             radius="xl"
-          > */}
-            <Select
-              defaultValue="Pending Feedback"
-              data={["Needs Consolidation", "Active", "Evaluate", "Pending Feedback", "Not Renewing"]}
-              variant="filled"
-              radius="xl"
-              c="#0B3D91"
-              rightSection={<IconChevronDown/>}
-            />
-          {/* </Button> */}
+            c="#0B3D91"
+            rightSection={<IconChevronDown/>}
+          />
+          <Modal opened={opened} onClose={close}>
+            <Image height={80} src="./download.png" alt="Contract"/>
+          </Modal>
+          <Button onClick={open} radius="xl">View Contract</Button>
         </Group>
       </Group>
 
