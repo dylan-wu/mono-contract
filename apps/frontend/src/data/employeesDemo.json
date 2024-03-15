@@ -1,5 +1,53 @@
 [
   {
+    "name": "Athena Weissnat",
+    "department": "Operations",
+    "jobTitle": "Product Owner",
+    "totalLicenses": "5",
+    "company": "Little - Rippin",
+    "email": "Athena.Weissnat@yahoo.com"
+  },
+  {
+    "name": "Deangelo Runolfsson",
+    "department": "Account Management",
+    "jobTitle": "Sales manager",
+    "totalLicenses": "15",
+    
+    
+    "company": "Greenfelder - Krajcik",
+    "email": "Deangelo87@yahoo.com"
+  },
+  {
+    "name": "Danny Carter",
+    "department": "Technology",
+    "jobTitle": "Marketing Specialist",
+    "totalLicenses": "10",
+    
+    
+    "company": "Kohler and Sons",
+    "email": "Danny3@hotmail.com"
+  },
+  {
+    "name": "Trace Tremblay PhD",
+    "department": "Brand",
+    
+    
+    "jobTitle": "Financial Analyst",
+    "totalLicenses": "8",
+    "company": "Crona, Aufderhar and Senger",
+    "email": "Trace.Tremblay@yahoo.com"
+  },
+  {
+    "name": "Derek Dibbert",
+    "department": "Operations",
+    "jobTitle": "IT Director",
+    "totalLicenses": "8",
+    
+    
+    "company": "Gottlieb LLC",
+    "email": "Derek29@hotmail.com"
+  },
+  {
     "name": "Viola Bernhard",
     "department": "Operations",
     "jobTitle": "Operations Manager",
