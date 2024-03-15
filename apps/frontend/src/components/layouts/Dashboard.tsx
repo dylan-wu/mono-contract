@@ -14,6 +14,7 @@ import {
   Text,
   TextInput,
   NumberInput,
+  NavLink,
 } from "@mantine/core";
 import {
   IconFileAnalytics,
@@ -24,7 +25,8 @@ import {
   IconPhoto,
   IconUsers,
   IconPlus,
-  IconCloudUpload
+  IconCloudUpload,
+  IconNotes
 } from "@tabler/icons-react";
 
 
@@ -61,6 +63,7 @@ export default function Dashboard(
   const [isLoading, setIsLoading] = useState(false);
   const [isMount, setIsMount] = useState(true);
   const [isConfirming, setIsConfirming] = useState(false);
+  const [active, setActive] = useState("parent-contract");
 
   useEffect(() => {
     const another = <TextInput label="CONTRACT NAME" placeholder="Enter contract name" key={numContracts}/> 
@@ -115,6 +118,16 @@ export default function Dashboard(
     }
   }
 
+  // const links = [
+  //   {label: "Contracts", icon: IconNotes},
+  //   {label: "Contracts", onClick: () => window.location.href = './contracts'},
+  //   {label: "Contract Breakdown", onClick: () => window.location.href = './salesforce'},
+  //   {label: "Employees", icon: IconUsers},
+  //   {label: "Employees", onClick: () => window.location.href = './employees'},
+  //   {label: "Specific Employee View", onClick: () => window.location.href = './individual-employee'},
+  //   {label: "Renewals", icon: IconRefresh}
+  // ]
+
   return (
     <AppShell style={{ backgroundColor: "#F9FAFB" }}>
       <Navbar width={{ sm: 300 }} p="md">
@@ -142,7 +155,70 @@ export default function Dashboard(
         </Navbar.Section>
 
         <Navbar.Section grow component={ScrollArea}>
-          <Group spacing="md">{links}</Group>
+          <Group spacing="md">
+            <NavLink 
+              id="parent-contract"
+              label="Contracts" 
+              // active={active == "parent-contract"}
+              icon={<IconNotes/>}
+              onClick={() => setActive("parent-contract")}
+              variant="subtle"
+              color="blue.9"
+              active
+            >
+                <NavLink 
+                  label="Contracts" 
+                  component="a" 
+                  href="/contracts"
+                  variant="subtle"
+                  color="blue.9"
+                  active
+                />
+                <NavLink label="Contract Breakdown"
+                  component="a" 
+                  href="/vendors/salesforce"
+                  variant="subtle"
+                  color="blue.9"
+                  active
+                />
+            </NavLink>
+            <NavLink 
+              label="Employees" 
+              color="blue.9"
+              icon={<IconUsers/>}
+              // active={active == "parent-employees"}
+              onClick={() => setActive("parent-employees")}
+              variant="subtle"
+              active
+            >
+                <NavLink label="Employees" 
+                  
+                  component="a" 
+                  href="/employees"
+                  variant="subtle"
+                  color="blue.9"
+                  active
+                />
+                <NavLink label="Specific Employee View"
+                  
+                  component="a" 
+                  href="/individual-employees"
+                  variant="subtle"
+                  color="blue.9"
+                  active
+                />
+            </NavLink>
+            <NavLink 
+              label="Renewals" 
+              icon={<IconRefresh/>} 
+              variant="subtle"
+              color="blue.9"
+              active
+              // active={active == "renewals"}
+              component="a" 
+              href="/renewals"
+            />
+          </Group>
         </Navbar.Section>
 
         <Navbar.Section pl="md">
