@@ -21,7 +21,7 @@ import uploadFileToS3 from "./api/UploadFileToS3";
 import { useUser } from "@clerk/nextjs";
 
 import EmployeeData from "../data/employees.json"  
-import EmployeeDataToAdd from "../data/employeesToAdd.json"
+import EmployeesDataDemo from "../data/employeesDemo.json"
 import { data } from "autoprefixer";
 import { keys } from "@mantine/utils";
 
@@ -93,6 +93,7 @@ export default function Home(props: Partial<DropzoneProps>) {
   const [search, setSearch] = useState("");
   const [sortedData, setSortedData] = useState(EmployeeData);
   const [sortBy, setSortBy] = useState<keyof RowData | null>(null);
+  const [backToDashBoard, setBackToBashBoard] = useState(false)
 
   const handleSearchChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value } = event.currentTarget;
@@ -124,7 +125,8 @@ export default function Home(props: Partial<DropzoneProps>) {
       setIsMount(false)
     } else {
       setTimeout(() => {
-        setIsConfirming(false);
+        setIsConfirming(false); 
+        setSortedData(EmployeesDataDemo)
       }, 3000)
     }
   }, [isConfirming]);
@@ -217,7 +219,7 @@ export default function Home(props: Partial<DropzoneProps>) {
                 defaultValue="Athena.Weissnat@yahoo.com"
               />
               <TextInput
-                label="COOMPANY NAME"
+                label="COMPANY NAME"
                 defaultValue="Little - Rippin"
               />
               <TextInput
@@ -234,9 +236,9 @@ export default function Home(props: Partial<DropzoneProps>) {
               />
               <Group position="right">
                 <Button 
+                  component="a"
                   leftIcon={<IconCloudUpload />} 
-                  onClick={() => {setIsConfirming(true), 
-                    setSortedData([...EmployeeDataToAdd, ...sortedData])}}
+                  onClick={() => {setIsConfirming(true)}}
                   loading={isConfirming}
                   bg="#0B3D91"
                 >
@@ -311,9 +313,10 @@ export default function Home(props: Partial<DropzoneProps>) {
                 label="COMPANY NAME"
                 placeholder="Enter company name"
               />
-              <TextInput
+              <Select
                 label="CONTRACT NAME"
                 placeholder="Select contract name"
+                data={["Indeed Talent Group Contract 2023", "Bullhorn InSource Contact", "LinkedIn Contract"]}
               />
             </Stack>
             <Dropzone
