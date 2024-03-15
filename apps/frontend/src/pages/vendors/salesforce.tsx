@@ -11,6 +11,7 @@ import {
   Image,
   Table,
   Grid,
+  Select,
 } from "@mantine/core";
 import {
   IconCalendarEvent,
@@ -61,6 +62,12 @@ export default function Home() {
             <Image width={50} src="/logos/salesforce.png" />
           </Card>
           <Title size="h2">Salesforce</Title>
+          <Select
+            defaultValue="Pending Feedback"
+            data={["Needs Consolidation", "Active", "Evaluate", "Pending Feedback", "Not Renewing"]}
+            color="#0B3D91"
+            radius="xl"
+          />
         </Group>
       </Group>
 
