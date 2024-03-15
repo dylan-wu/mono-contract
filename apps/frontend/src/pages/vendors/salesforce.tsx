@@ -71,9 +71,9 @@ export default function Home() {
             c="#0B3D91"
             rightSection={<IconChevronDown/>}
           />
-          <Modal opened={opened} onClose={close}>
+          <Modal opened={opened} onClose={close} size="75%">
             <Group position="center">
-              <iframe src="/logos/demo_contract.pdf" height="500px" />
+              <iframe src="/logos/demo_contract.pdf" width="75%" height="500px" />
             </Group>
           </Modal>
           <Button onClick={open} radius="xl">View Contract</Button>
